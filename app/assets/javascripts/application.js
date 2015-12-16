@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap-editable.min
+//= require bootstrap.min
+//= require chosen.jquery.min
+//= require bootstrap-multiselect.min
+//= require jquery.1.11.1.min
+//= require jquery.2.1.1.min
+//= require jquery-ui.custom.min
+//= require jquery1.min
+//= require jquery-ui.custom.min
+
+
