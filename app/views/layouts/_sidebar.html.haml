@@ -1,0 +1,14 @@
+#sidebar.sidebar.responsive{"data-sidebar" => "true", "data-sidebar-hover" => "true", "data-sidebar-scroll" => "true"}
+  :javascript
+    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+  #sidebar-shortcuts.sidebar-shortcuts
+    
+  %ul.nav.nav-list{:style => "top: 0px;"}
+    %li
+      %a{:href => "index.html"}
+        %i.menu-icon.fa.fa-tachometer
+        %span.menu-text Dashboard
+      %b.arrow
+    %li
+      = link_to "Users", users_url
+      
