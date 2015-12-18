@@ -15,9 +15,14 @@
     .navbar-buttons.navbar-header.pull-right{:role => "navigation"}
       %ul.nav.ace-nav
         %li.grey
-          %a{:method => :delete, :href => "#{destroy_user_session_path}"}
-            %i.ace-icon.fa.fa-tasks
-            Log out
+          - if user_signed_in?
+            %a{:method => :delete, :href => "#{destroy_user_session_path}"}
+              %i.ace-icon.fa.fa-tasks
+              Logout
+          - else
+            %a{:href => "#{new_user_session_path}"}
+              %i.ace-icon.fa.fa-tasks
+              Login
           %ul.dropdown-menu-right.dropdown-navbar.dropdown-menu.dropdown-caret.dropdown-close
             %li.dropdown-header
               %i.ace-icon.fa.fa-check
