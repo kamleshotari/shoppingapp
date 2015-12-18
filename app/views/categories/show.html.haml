@@ -1,2 +1,13 @@
-%h1 Categories#show
-%p Find me in app/views/categories/show.html.haml
+%p#notice= notice
+%p
+  %strong Name:
+  = @category.name
+%p
+  %strong Code:
+  = @category.code
+%p
+  %strong Description:
+  = @category.description
+= link_to 'Edit', edit_category_path(@category)
+|
+\#{link_to 'Back', categories_path}

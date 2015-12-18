@@ -9,5 +9,14 @@
         %i.menu-icon.fa.fa-tachometer
         %span.menu-text Dashboard
       %b.arrow
-    
-      
+    %li{:class => params[:controller] == "categories" ? "active" : ""}
+      %a{:href => "#{categories_url}"}
+        %i.menu-icon.fa.fa-tachometer
+        %span.menu-text Categories
+      %b.arrow
+
+    %li{:class => params[:controller] == "products" ? "active" : ""}
+      %a{:href => "#{products_url}"}
+        %i.menu-icon.fa.fa-tachometer
+        %span.menu-text Products
+      %b.arrow
