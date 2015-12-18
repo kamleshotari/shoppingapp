@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  devise_for :users
+  devise_scope :user do
+    get '/sign_up' => 'devise/registrations#new'
+end
   resources :products
   resources :categories
 
