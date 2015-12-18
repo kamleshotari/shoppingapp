@@ -1,3 +1,5 @@
+%p#notice= notice
+%h3 Listing Products
 %table#simple-table.table.table-striped.table-bordered.table-hover
   %thead
     %tr
@@ -8,6 +10,7 @@
       %th Uniq_Code
       %th Code
       %th Color
+      %th Action
   %tbody
   - @products.each do |product|
     %tr
@@ -18,8 +21,11 @@
       %td= product.uniq_code
       %td= product.code
       %td= product.color
-      %td{:width => "5%"}= link_to 'Show', product
-      %td{:width => "5%"}= link_to 'Edit', edit_product_path(product)
-      %td{:width => "5%"}= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+      %td
+        = link_to 'Show', product
+        |
+        = link_to 'Edit', edit_product_path(product)
+        |
+        = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 

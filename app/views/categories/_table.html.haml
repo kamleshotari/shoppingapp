@@ -1,18 +1,27 @@
-%table#simple-table.table.table-striped.table-bordered.table-hover
+%p#notice= notice
+%h3 Listing Category
+%table#simple-table.table.table-bordered.table-hover
   %thead
     %tr
       %th Name
       %th Code
       %th Description
-      
+      %th Action
   %tbody
     - @categories.each do |category|
       %tr
         %td= category.name
         %td= category.code
         %td= category.description
-        %td{:width => "5%"}= link_to 'Show', category
-        %td{:width => "5%"}= link_to 'Edit', edit_category_path(category)
-        %td{:width => "5%"}= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+        %td
+          .hidden-sm.hidden-xs.btn-group
+            %button.btn.btn-xs.btn-success
+              %span.ace-icon.fa.fa-check.bigger-120::before 
+              = link_to "Show".html_safe, category
+            %button.btn.btn-xs.btn-info
+              = link_to "Edit", edit_category_path(category)
+            %button.btn.btn-xs.btn-danger
+              = link_to "Delete", category, method: :delete, data: { confirm: 'Are you sure?' }
+          
 %br/
 
