@@ -15,9 +15,9 @@
     .navbar-buttons.navbar-header.pull-right{:role => "navigation"}
       %ul.nav.ace-nav
         %li.grey
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          %a{:method => :delete, :href => "#{destroy_user_session_path}"}
             %i.ace-icon.fa.fa-tasks
-            %span.badge.badge-grey 4
+            Log out
           %ul.dropdown-menu-right.dropdown-navbar.dropdown-menu.dropdown-caret.dropdown-close
             %li.dropdown-header
               %i.ace-icon.fa.fa-check
