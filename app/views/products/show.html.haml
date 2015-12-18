@@ -1,2 +1,25 @@
-%h1 Products#show
-%p Find me in app/views/products/show.html.haml
+%p#notice= notice
+%p
+  %strong Title:
+  = @product.title
+%p
+  %strong Description:
+  = @product.description
+%p
+  %strong Price:
+  = @product.price
+%p
+  %strong Category:
+  = @product.category_id
+%p
+  %strong Uniq code:
+  = @product.uniq_code
+%p
+  %strong Code:
+  = @product.code
+%p
+  %strong Color:
+  = @product.color
+= link_to 'Edit', edit_product_path(@product)
+|
+\#{link_to 'Back', products_path}
