@@ -22,6 +22,8 @@
               = link_to "Edit", edit_category_path(category)
             %button.btn.btn-xs.btn-danger
               = link_to "Delete", category, method: :delete, data: { confirm: 'Are you sure?' }
-          
-%br/
+    %br/  
+= paginate @categories
+    
+
 

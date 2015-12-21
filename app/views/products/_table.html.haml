@@ -1,6 +1,6 @@
 %p#notice= notice
 %h3 Listing Products
-%table#simple-table.table.table-striped.table-bordered.table-hover
+%table#simple-table.table.table-bordered.table-hover
   %thead
     %tr
       %th Title
@@ -12,20 +12,27 @@
       %th Color
       %th Action
   %tbody
-  - @products.each do |product|
-    %tr
-      %td= product.title
-      %td= product.description
-      %td= product.price
-      %td= product.category_id
-      %td= product.uniq_code
-      %td= product.code
-      %td= product.color
-      %td
-        = link_to 'Show', product
-        |
-        = link_to 'Edit', edit_product_path(product)
-        |
-        = link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+    - @products.each do |product|
+      %tr
+        %td= product.title
+        %td= product.description
+        %td= product.price
+        %td= product.category_id
+        %td= product.uniq_code
+        %td= product.code
+        %td= product.color
+        %td
+          .hidden-sm.hidden-xs.btn-group
+            %button.btn.btn-xs.btn-success
+              %span.ace-icon.fa.fa-check.bigger-120::before 
+              = link_to "Show".html_safe, product
+            %button.btn.btn-xs.btn-info
+              = link_to "Edit", edit_product_path(product)
+            %button.btn.btn-xs.btn-danger
+              = link_to "Delete", product, method: :delete, data: { confirm: 'Are you sure?' }
+          
+
+= paginate @products
 %br/
+
 

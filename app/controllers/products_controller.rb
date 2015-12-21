@@ -3,8 +3,9 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @products = Product.all
+    @products = Product.page(params[:page]).per(5)
   end
+  
 
   def new
     @product = Product.new
@@ -26,6 +27,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+   
   end
 
   def edit
