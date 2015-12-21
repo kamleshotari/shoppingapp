@@ -1,25 +1,7 @@
 %p#notice= notice
-%p
-  %strong Title:
-  = @product.title
-%p
-  %strong Description:
-  = @product.description
-%p
-  %strong Price:
-  = @product.price
-%p
-  %strong Category:
-  = @product.category_id
-%p
-  %strong Uniq code:
-  = @product.uniq_code
-%p
-  %strong Code:
-  = @product.code
-%p
-  %strong Color:
-  = @product.color
-= link_to 'Edit', edit_product_path(@product)
-|
-\#{link_to 'Back', products_path}
+= render "details"
+%br/ 
+%button.btn.btn-xs.btn-info
+              = link_to "Edit", edit_product_path(@product)
+%button.btn.btn-xs.btn-success
+              = link_to "Back", products_path
