@@ -34,4 +34,11 @@
       %p
         = @product.color
 
+  .profile-info-row
+    .profile-info-name Selected Image
+    .profile-info-value
+      %p
+        = image_tag(@product.image.url(:thumb))
+
+
   
