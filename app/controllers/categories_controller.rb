@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_filter :authenticate_admin
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   def index
      @categories = Category.all

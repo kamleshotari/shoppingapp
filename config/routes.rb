@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/dashboard' => "dashboard#index"
+
+
   devise_for :users
   devise_scope :user do
     get '/sign_up' => 'devise/registrations#new'
@@ -7,7 +10,7 @@ end
   resources :categories
 
   
-  root 'products#index'
+  root 'dashboard#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
