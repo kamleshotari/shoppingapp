@@ -11,11 +11,12 @@
  * file per style scope.
  *
 
- *= require_self
+
  *= require bootstrap.min
  *= require ace.min
- *= require jquery-ui.custom.min
+ *= require font-awesome/css/font-awesome.min
  *= require jquery-ui.min
+ *= require jquery-ui.custom.min
  *= require custom
  
  */
