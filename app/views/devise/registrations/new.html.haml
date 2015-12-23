@@ -26,9 +26,29 @@
                       %i.ace-icon.fa.fa-user
                   %label.block.clearfix
                     %span.block.input-icon.input-icon-right
-                      = f.password_field :password_confirmation, :class => "form-control", :placeholder => "Password confirmation"
+                      = f.password_field :password_confirmation, :class => "form-control", :placeholder => 				"Password confirmation"
+                      %label.block.clearfix
+                      
+                    %span.block.input-icon.input-icon-right
+                      = f.text_field :first_name, :class => "form-control", :placeholder => "First name"
+                      %i.ace-icon.fa.fa-user
+                      %label.block.clearfix
+                    %span.block.input-icon.input-icon-right
+                      = f.text_field :last_name, :class => "form-control", :placeholder => "Last name"
+                      %i.ace-icon.fa.fa-user
+                      %label.block.clearfix
+                    %span.block.input-icon.input-icon-right
+                      = f.text_field :address, :class => "form-control", :placeholder => "Address"
+                      %i.ace-icon.fa.fa-user
+                      %label.block.clearfix
+                    %span.block.input-icon.input-icon-right
+                      = f.text_field :country, :class => "form-control", :placeholder => "Country"
+                      %i.ace-icon.fa.fa-user
+                      %label.block.clearfix
+                    %span.block.input-icon.input-icon-right
+                      = f.number_field :phone_number, :class => "form-control", :placeholder => "Phone number"
+                      %i.ace-icon.fa.fa-user
                       %i.ace-icon.fa.fa-lock
-                  
                   .space-24
                   .clearfix
                     = f.submit "Register", :class => "btn btn-sm btn-success"
