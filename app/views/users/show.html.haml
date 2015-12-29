@@ -1,11 +1,10 @@
-%p#notice= notice
 = render "details"
 %br/ 
 .hidden-sm.hidden-xs.btn-group
  %button.btn.btn-xs.btn-info
   %span.ace-icon.fa.fa-pencil.bigger-120::before 
-   = link_to "Edit", edit_category_path(@category)
+   = link_to "Edit", edit_user_path(@user)
 .hidden-sm.hidden-xs.btn-group
  %button.btn.btn-xs.btn-success
   %span.ace-icon.fa.fa-reply.icon-only::before 
-   = link_to "Back", categories_path
+   = link_to "Back", users_path

@@ -1,0 +1,33 @@
+= form_for @user, :html => {:class => "form-horizontal"} do |f|
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Email
+    .col-sm-9
+      = f.text_field :email, :class => "col-xs-10 col-sm-5", :placeholder => "Email"
+      
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} First Name
+    .col-sm-9
+      = f.text_field :first_name, :class => "col-xs-10 col-sm-5", :placeholder => "First_Name"
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Last_Name
+    .col-sm-9
+      = f.text_field :last_name, :class => "col-xs-10 col-sm-5", :placeholder => "Last_Name"
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Address
+    .col-sm-9
+      = f.text_field :country, :class => "col-xs-10 col-sm-5", :placeholder => "Address"
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Country
+    .col-sm-9
+      = f.text_field :address, :class => "col-xs-10 col-sm-5", :placeholder => "Country"
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Phone_Number
+    .col-sm-9
+      = f.text_field :phone_number, :class => "col-xs-10 col-sm-5", :placeholder => "Phone_Number"
+  .space-4
+  .clearfix.form-actions
+    .col-md-offset-3.col-md-9
+      = f.submit "Submit", :class => "btn btn-info"
+
+
+

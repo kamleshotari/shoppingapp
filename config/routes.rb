@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+ # get 'users/index'
+
+  #get 'users/new'
+
+  #get 'users/show'
+
+  #get 'users/edit'
+
   get '/dashboard' => "dashboard#index"
 
 
@@ -8,6 +16,7 @@ Rails.application.routes.draw do
 end
   resources :products
   resources :categories
+  resources :users
 
   
   root 'dashboard#index'
