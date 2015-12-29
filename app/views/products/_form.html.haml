@@ -3,6 +3,7 @@
     %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Title
     .col-sm-9
       = f.text_field :title, :class => "col-xs-10 col-sm-5", :placeholder => "Title"
+      
   .form-group
     %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Description
     .col-sm-9
@@ -12,9 +13,9 @@
     .col-sm-9
       = f.text_field :price, :class => "col-xs-10 col-sm-5", :placeholder => "Price"
   .form-group
-    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Category_id
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Category
     .col-sm-9
-      = f.text_field :category_id, :class => "col-xs-10 col-sm-5", :placeholder => "Category_id"
+      = f.select :category_id, Category.all.collect{|c| [c.name, c.id]}, :prompt => "select", :class => "col-xs-10 col-sm-5"
   .form-group
     %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Uniq_code
     .col-sm-9
