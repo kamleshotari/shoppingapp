@@ -1,19 +1,12 @@
 .row
   .col-sm-10.col-sm-offset-1
     .login-container
-      .center
-        %h1
-          %i.ace-icon.fa.fa-leaf.green
-          %span.red Ace
-          %span#id-text2.white Application
-        %h4#id-company-text.blue © Company Name
       .space-6
       .position-relative
         #login-box.login-box.widget-box.no-border.visible
           .widget-body
             .widget-main
               %h4.header.blue.lighter.bigger
-                %i.ace-icon.fa.fa-coffee.green
                 Please Enter Your Information
               .space-6
               = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -24,8 +17,8 @@
                       %i.ace-icon.fa.fa-user
                   %label.block.clearfix
                     %span.block.input-icon.input-icon-right
-                  = f.password_field :password, :class => "form-control", :placeholder => "Password"
-                  %i.ace-icon.fa.fa-lock
+                      = f.password_field :password, :class => "form-control", :placeholder => "Password"
+                      %i.ace-icon.fa.fa-lock
                   .space
                   .clearfix
                     

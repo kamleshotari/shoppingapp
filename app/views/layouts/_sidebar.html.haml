@@ -1,8 +1,5 @@
 #sidebar.sidebar.responsive{"data-sidebar" => "true", "data-sidebar-hover" => "true", "data-sidebar-scroll" => "true"}
-  :javascript
-    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
   #sidebar-shortcuts.sidebar-shortcuts
-    
   %ul.nav.nav-list{:style => "top: 0px;"}
     %li{:class => params[:controller] == "dashboard" ? "active" : ""}
       %a{:href => "/dashboard"}

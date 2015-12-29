@@ -10,17 +10,18 @@
     .navbar-header.pull-left
       %a.navbar-brand{:href => "index.html"}
         %small
-          %i.fa.fa-leaf
-          Ace Admin
+          Admin
     .navbar-buttons.navbar-header.pull-right{:role => "navigation"}
       %ul.nav.ace-nav
         %li.grey
           - if user_signed_in?
             %a{:method => :delete, :href => "#{destroy_user_session_path}"}
-              %i.ace-icon.fa.fa-tasks
+              %small
+                %i.ace-icon.fa.fa-power-off
               Logout
           - else
             %a{:href => "#{new_user_session_path}"}
-              %i.ace-icon.fa.fa-tasks
+              %small
+                %i.ace-icon.fa.fa-key
               Login
           
