@@ -27,9 +27,13 @@
             %button.btn.btn-xs.btn-success
               %span.ace-icon.fa.fa-check.bigger-120::before 
               = link_to "Show".html_safe, product
+          .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-info
+              %span.ace-icon.fa.fa-pencil.bigger-120::before 
               = link_to "Edit", edit_product_path(product)
+          .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-danger
+              %span.ace-icon.fa.fa-trash-o.bigger-120
               = link_to "Delete", product, method: :delete, data: { confirm: 'Are you sure?' }
           
 
