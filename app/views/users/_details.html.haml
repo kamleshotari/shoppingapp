@@ -1,0 +1,35 @@
+.profile-user-info.profile-user-info-striped
+  .profile-info-row
+    .profile-info-name Email
+    .profile-info-value
+      %p
+        = @user.email
+  .profile-info-row
+    .profile-info-name First_Name
+    .profile-info-value
+      %p
+        = @user.first_name
+           
+  .profile-info-row
+    .profile-info-name Last_Name
+    .profile-info-value
+      %p
+        = @user.last_name
+      
+  .profile-info-row
+    .profile-info-name Address
+    .profile-info-value
+      %p
+        = @user.address
+
+  .profile-info-row
+    .profile-info-name Country
+    .profile-info-value
+      %p
+        = @user.country
+
+  .profile-info-row
+    .profile-info-name Phone_Number
+    .profile-info-value
+      %p
+        = @user.phone_number

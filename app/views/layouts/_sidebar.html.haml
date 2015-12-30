@@ -17,3 +17,9 @@
         %i.menu-icon.fa.fa-tachometer
         %span.menu-text Products
       %b.arrow
+    %li{:class => params[:controller] == "users" ? "active" : ""}
+      %a{:href => "#{users_url}"}
+        %i.menu-icon.fa.fa-tachometer
+        %i.ace-icon.fa.fa-user
+        %span.menu-text Users
+      %b.arrow  
