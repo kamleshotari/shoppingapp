@@ -3,9 +3,7 @@
 %br/ 
 .hidden-sm.hidden-xs.btn-group
  %button.btn.btn-xs.btn-info
-  %span.ace-icon.fa.fa-pencil.bigger-120::before 
-   = link_to "Edit", edit_category_path(@category)
+  = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_category_path(@category)
 .hidden-sm.hidden-xs.btn-group
  %button.btn.btn-xs.btn-success
-  %span.ace-icon.fa.fa-reply.icon-only::before 
-   = link_to "Back", categories_path
+  = link_to "<span class='ace-icon fa fa-reply icon-only bigger-120'>Back</span>".html_safe, categories_path

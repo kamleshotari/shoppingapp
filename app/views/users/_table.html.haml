@@ -22,16 +22,13 @@
         %td
           .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-success
-              %span.ace-icon.fa.fa-check.bigger-120::before 
-              = link_to "Show".html_safe, user
+              = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, user
           .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-info
-              %span.ace-icon.fa.fa-pencil.bigger-120::before 
-              = link_to "Edit", edit_user_path(user)
+              = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_user_path(user)
           .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-danger
-              %span.ace-icon.fa.fa-trash-o.bigger-120
-              = link_to "Delete", user, method: :delete, data: { confirm: 'Are you sure?' }
+              = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, user, method: :delete, data: { confirm: 'Are you sure?' }
           
 
 = paginate @users
