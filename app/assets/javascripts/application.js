@@ -14,14 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
-//= require bootbox.min
 //= require bootstrap-editable.min
+//= require bootstrap-multiselect.min
 //= require ace.min
 //= require ace-elements.min
 //= require ace-extra.min
 //= require chosen.jquery.min
-//= require bootstrap-multiselect.min
+//= require jquery-ui.min
 //= require jquery-ui.custom.min
+//= require bootbox.min
+//= require custom
 
 
 
