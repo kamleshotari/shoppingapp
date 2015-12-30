@@ -1,0 +1,96 @@
+
+#fwslider
+  .slider_container
+    .slide
+      / Slide image
+      %img{:alt => "", :src => "/assets/banner.jpg"}/
+      / /Slide image
+      / Texts container
+      .slide_content
+        .slide_content_wrap
+          / Text title
+          %h4.title Aluminium Club
+          / /Text title
+          / Text description
+          %p.description Experiance ray ban
+          / /Text description
+      / /Texts container
+    / /Duplicate to create more slides
+    .slide
+      %img{:alt => "", :src => "/assets/banner1.jpg"}/
+      .slide_content
+        .slide_content_wrap
+          %h4.title consectetuer adipiscing
+          %p.description diam nonummy nibh euismod
+    / /slide
+  .timers
+  .slidePrev
+    %span
+  .slideNext
+    %span
+/ /slider
+.main
+  .wrap
+    .section.group
+      .cont.span_2_of_3
+        %h2.head Featured Products
+        .top-box
+          - counter = 0
+          - @products.each_with_index do |p, i|
+            - counter += 1
+            .col_1_of_3.span_1_of_3
+              %a{:href => "single.html"}
+                .inner_content.clearfix
+                  .product_image
+                    = image_tag(p.image.url)
+                  .sale-box
+                    %span.on_sale.title_shop New
+                  .price
+                    .cart-left
+                      %p.title
+                        = p.title
+                      .price1
+                        %span.actual
+                          = p.price
+                    .cart-right
+                    .clear
+            - if counter == 3
+              - counter = 0
+              <div class='clear'>
+              </div>
+              </div>
+              <div class='top-box'>
+
+          
+        
+        
+        
+      .rsidebar.span_1_of_left
+        .top-border
+        .border
+          %link{:href => "css/default.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+          %link{:href => "css/nivo-slider.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+          %script{:src => "js/jquery.nivo.slider.js"}
+          :javascript
+            $(window).load(function() {
+                $('#slider').nivoSlider();
+            });
+          .slider-wrapper.theme-default
+            #slider.nivoSlider
+              %img{:alt => "", :src => "/assets/t-img1.jpg"}/
+              %img{:alt => "", :src => "/assets/t-img2.jpg"}/
+              %img{:alt => "", :src => "/assets/t-img3.jpg"}/
+          .btn
+            %a{:href => "single.html"} Check it Out
+        .top-border
+        .sidebar-bottom
+          %h2.m_1
+            Newsletters
+            %br/
+            Signup
+          %p.m_text Lorem ipsum dolor sit amet, consectetuer
+          .subscribe
+            %form
+              %input.textbox{:name => "userName", :type => "text"}/
+              %input{:type => "submit", :value => "Subscribe"}/
+      .clear

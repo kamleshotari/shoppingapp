@@ -16,3 +16,4 @@ db/schema.rb
 public/assets
 .byebug_history
 .env
+public/system/*

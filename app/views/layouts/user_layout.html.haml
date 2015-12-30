@@ -1,0 +1,23 @@
+%html
+  %head
+    %title Shopping App
+    %link{:href => "/assets/style.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "/assets/form.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "http://fonts.googleapis.com/css?family=Exo+2", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/assets/jquery1.min.js", :type => "text/javascript"}
+    / start menu
+    %link{:href => "/assets/megamenu.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    %script{:src => "/assets/megamenu.js", :type => "text/javascript"}
+    :javascript
+      $(document).ready(function(){$(".megamenu").megamenu();});
+    / start slider
+    %link{:href => "/assets/fwslider.css", :media => "all", :rel => "stylesheet"}/
+    %script{:src => "/assets/jquery-ui.min.js"}
+    %script{:src => "/assets/css3-mediaqueries.js"}
+    %script{:src => "/assets/fwslider.js"}
+    / end slider
+    %script{:src => "/assets/jquery.easydropdown.js"}
+  %body
+    = render "layouts/user_header"
+    = yield
+    = render "layouts/user_footer"
