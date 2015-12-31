@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
 	include Paperclip::Glue
+	belongs_to :category
 	validates :title, :presence => {:message => "title can't be blank." },
 						format: {with: /\A([^\d\W]|[-])*\z/ , message: 'title cannot have any numbers or special characters'}
 	validates :price, :presence => true,
