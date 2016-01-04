@@ -7,7 +7,7 @@
       %th Title
       %th Description
       %th Price
-      %th product_id
+      %th Category
       %th Uniq_Code
       %th Code
       %th Color
@@ -18,7 +18,8 @@
         %td= product.title
         %td= product.description
         %td= product.price
-        %td= product.category_id
+        %td
+          = product.category.name rescue '-'
         %td= product.uniq_code
         %td= product.code
         %td= product.color
