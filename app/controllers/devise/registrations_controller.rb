@@ -1,7 +1,7 @@
 class Devise::RegistrationsController < DeviseController
   prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
   prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
-
+  
   # GET /resource/sign_up
   def new
     build_resource({})
@@ -135,11 +135,11 @@ class Devise::RegistrationsController < DeviseController
   end
 
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:sign_up)
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation)
   end
 
   def account_update_params
-    devise_parameter_sanitizer.sanitize(:account_update)
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation)
   end
 
   def translation_scope
