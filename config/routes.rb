@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'pproduct/index'
+
+  get 'pproduct/new'
+
+  get 'pproduct/show'
+
+  get 'pproduct/edit'
+
   get '/store' => "store#index"
   get '/dashboard' => "dashboard#index"
 
