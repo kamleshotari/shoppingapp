@@ -1,6 +1,7 @@
 %p#notice= notice
 %h3 Listing Products
 = link_to "New Product", new_product_path, :class => "btn btn-info pull-right"
+= link_to "Import ExcelSheet", "/product_import/new", :class => "btn btn-info pull-right"
 %table#simple-table.table.table-bordered.table-hover
   %thead
     %tr
@@ -34,6 +35,8 @@
             %button.btn.btn-xs.btn-danger
               = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, product, method: :delete, data: { confirm: 'Are you sure?' }
           
+
+
 
 = paginate @products
 %br/

@@ -1,0 +1,39 @@
+
+#import-msg
+  - if params[:s].present?
+    %p.alert.alert-success
+      Success rows:
+      =params[:s]
+      %button.close{"data-dismiss" => "alert", :type => "button"}
+        %strong
+          %i.ace-icon.fa.fa-times 
+    
+  %br/
+
+  - if params[:f].present?
+    %p.alert.alert-danger
+      Failed rows:
+      =params[:f]
+      %button.close{"data-dismiss" => "alert", :type => "button"}
+        %strong
+          %i.ace-icon.fa.fa-times 
+
+%h3 FILE UPLOAD
+= form_tag "/product_import", multipart: true do 
+  
+
+  .col-xs-12.col-sm-6.widget-container-col.ui-sortable
+    .widget-box.widget-color-pink.ui-sortable-handle
+      .widget-header
+        .widget-title.smaller Select The File To Be Imported  
+      .widget-body
+        .widget-main.padding-6 
+          .btn.btn-app.btn-purple.btn-sm{:onclick => "$(this).parent().find('input[type=file]').click();"}
+            %i.ace-icon.fa.fa-cloud-upload.bigger-200{:onclick => "$(this).parent().find('input[type=file]').click();"}
+            Upload
+          = file_field_tag :file, style: "display: none;", onchange: "$(this).parent().find('.form-input').html($(this).val().split(/[\\\\|/]/).pop());"
+          %span.form-input
+        .center 
+          %button.btn
+            %i.ace-icon.fa.fa-cloud-upload
+            Import

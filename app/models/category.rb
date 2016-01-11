@@ -1,10 +1,14 @@
 class Category < ActiveRecord::Base
 	has_many :products
+
 	validates :name, :presence => {:message => "Name can't be blank." }, 
-						format: {with: /\A([^\d\W]|[-])*\z/ , message: 'Name cannot have any numbers or special characters'}
+						uniqueness: true
+	validates :code, uniqueness: true,
+						:allow_blank => true
+
 
 	validates	:description, :presence => true
-						
+					
 	end
 
 

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.remotipart
 //= require turbolinks
 //= require bootstrap.min
 //= require bootstrap-editable.min
@@ -24,6 +25,8 @@
 //= require jquery-ui.custom.min
 //= require bootbox.min
 //= require custom
+
+
 
 
 

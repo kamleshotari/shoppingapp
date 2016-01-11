@@ -6,6 +6,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @products = Product.page(params[:page]).per(5)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @products.to_csv }
+      format.xls # { send_data @products.to_csv(col_sep: "\t") }
+    end
   end
   
 
@@ -51,20 +57,25 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url }
       format.json { head :no_content }
     end
   end
-
+  def import
+    Product.import(params[:file])
+    redirect_to root_url, notice: "Products imported."
+  end
  private
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:id, :title, :description, :price, :category_id, :uniq_code, :code, :color, :image)
     end
+
+    
   
 end
