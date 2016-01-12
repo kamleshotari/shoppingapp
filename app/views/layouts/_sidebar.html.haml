@@ -1,20 +1,25 @@
 #sidebar.sidebar.responsive{"data-sidebar" => "true", "data-sidebar-hover" => "true", "data-sidebar-scroll" => "true"}
   :javascript
     try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
-#sidebar.sidebar.responsive
   #sidebar-shortcuts.sidebar-shortcuts
-  .sidebar-shortcuts-large 
-    &nbsp;
-    / %button.btn.btn-success
-    /   %i.ace-icon.fa.fa-signal
-    / %button.btn.btn-info
-    /   %i.ace-icon.fa.fa-pencil
-    / %button.btn.btn-warning
-    /   %i.ace-icon.fa.fa-users
-    / %button.btn.btn-danger
-    /   %i.ace-icon.fa.fa-cogs
-  
+    #sidebar-shortcuts-large.sidebar-shortcuts-large
+      %button.btn.btn-success
+        %i.menu-icon.fa.fa-tachometer
+      %button.btn.btn-info
+        %i.fa.fa-line-chart
+      %button.btn.btn-warning
+        %i.ace-icon.fa.fa-user
+      %button.btn.btn-danger
+        %i.ace-icon.fa.fa-power-off
+      &nbsp;&nbsp;&nbsp
+    #sidebar-shortcuts-mini.sidebar-shortcuts-mini
+
+      %span.btn.btn-success
+      %span.btn.btn-info
+      %span.btn.btn-warning
+      %span.btn.btn-danger
   .sidebar-shortcuts
+  
   %ul.nav.nav-list{:style => "top: 0px;"}
     %li{:class => params[:controller] == "dashboard" ? "active" : ""}
       %a{:href => "/dashboard"}
@@ -38,3 +43,4 @@
         %i.ace-icon.fa.fa-user
         %span.menu-text Users
       %b.arrow  
+  .nav-list

@@ -5,13 +5,19 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+  
   %body
     = render :partial => "layouts/header"
+
     - if flash[:notice].present?
       .alert.alert-success.flash-notice-alert
         = notice
+    
     #main-container.main-container
+    
       - if user_signed_in?
         = render :partial => "layouts/sidebar"
       .main-content
+        = render :partial => "layouts/breadcrumbs"
         = yield
+

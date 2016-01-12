@@ -17,26 +17,19 @@
       %button.close{"data-dismiss" => "alert", :type => "button"}
         %strong
           %i.ace-icon.fa.fa-times 
-
-
-= form_tag "/product_import", multipart: true do 
-  
-
-  .col-xs-12.col-sm-6.widget-container-col.ui-sortable
-    .widget-box.widget-color-blue.ui-sortable-handle
-      .widget-header
-        .widget-title.smaller Select The File To Be Imported 
-        .btn.btn-success.pull-right
-          %i.ace-icon.fa.fa-cloud-download
-            = link_to 'Download', "/Untitled 1.xls", :target => "_blank"
-      .widget-body
-        .widget-main.padding-6 
-          .btn.btn-app.btn-purple.btn-sm{:onclick => "$(this).parent().find('input[type=file]').click();"}
-            %i.ace-icon.fa.fa-cloud-upload.bigger-200{:onclick => "$(this).parent().find('input[type=file]').click();"}
-            Upload
-          = file_field_tag :file, style: "display: none;", onchange: "$(this).parent().find('.form-input').html($(this).val().split(/[\\\\|/]/).pop());"
-          %span.form-input
-        .center 
-          %button.btn.btn-primary
-            %i.ace-icon.fa.fa-cloud-upload
-            Import
+  %h3.lighter.purple PROJECT IMPORT
+  .widget-main
+  = form_tag "/product_import", multipart: true do
+    .col-xs-4
+      %label.ace-file-input
+        = file_field_tag :file, onchange: "$(this).parent().find('.form-input-file-name').html($(this).val().split(/[\\\\|/]/).pop());"
+        %span.ace-file-container{"data-title" => "Choose"}
+          %span.ace-file-name
+            %span.form-input-file-name
+            %i.ace-icon.fa.fa-upload
+      %button.btn.btn-primary
+        %i.ace-icon.fa.fa-cloud-upload
+          Import
+      %button.btn.btn-success.pull-right
+        %i.ace-icon.fa.fa-cloud-download
+          = link_to 'Download Template', "/Untitled 1.xls", :target => "_blank"
