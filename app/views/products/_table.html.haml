@@ -1,6 +1,9 @@
-%p#notice= notice
+
 %h3 Listing Products
+
 = link_to "+ New", new_product_path, :class => "btn btn-info pull-right"
+%span.pull-right
+  &nbsp;
 
 = link_to "Import", "/product_import/new", :class => "btn btn-warning pull-right"
 %table#simple-table.table.table-bordered.table-hover
