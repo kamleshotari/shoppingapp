@@ -1,6 +1,21 @@
+#sidebar.sidebar.responsive{"data-sidebar" => "true", "data-sidebar-hover" => "true", "data-sidebar-scroll" => "true"}
+  :javascript
+    try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
 #sidebar.sidebar.responsive
   #sidebar-shortcuts.sidebar-shortcuts
-  %ul.nav.nav-list
+  .sidebar-shortcuts-large 
+    &nbsp;
+    / %button.btn.btn-success
+    /   %i.ace-icon.fa.fa-signal
+    / %button.btn.btn-info
+    /   %i.ace-icon.fa.fa-pencil
+    / %button.btn.btn-warning
+    /   %i.ace-icon.fa.fa-users
+    / %button.btn.btn-danger
+    /   %i.ace-icon.fa.fa-cogs
+  
+  .sidebar-shortcuts
+  %ul.nav.nav-list{:style => "top: 0px;"}
     %li{:class => params[:controller] == "dashboard" ? "active" : ""}
       %a{:href => "/dashboard"}
         %i.menu-icon.fa.fa-tachometer
