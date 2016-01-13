@@ -4,8 +4,10 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-    @products = Product.all
-    @products = Product.page(params[:page]).per(5)
+   #if params['search'].present?
+     
+    @products = Product.search(params).page(params[:page]).per(5)
+    
 
     respond_to do |format|
       format.html
@@ -14,7 +16,6 @@ class ProductsController < ApplicationController
     end
   end
   
-
   def new
     @product = Product.new
   end

@@ -10,6 +10,21 @@ class Product < ActiveRecord::Base
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   	validates	:category_id, :presence => true
 
+	  def self.search(params)
+	  	products = Product.all
+	  	if params[:search].present?
+		  	category = Category.where("name= ?", params[:search])
+		  	if category.present?
+		  		products = products.where("category_id IN (?)", category.last.id)
+		  	else
+		  		products = products.where("title LIKE ? OR price LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
+		  	end
+		  	
+
+		  end
+	  	products
+
+		end	
 		def self.import(file)
 			success = []
 			fail = []
@@ -45,5 +60,6 @@ class Product < ActiveRecord::Base
 			when '.xlsx' then Roo::Excelx.new(file.path, nil, :ignore)
 			else raise "Unknown file type: #{file.original_filename}"
 		end
-	end				
+	end	
+			
 end

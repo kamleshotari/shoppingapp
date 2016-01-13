@@ -6,6 +6,12 @@
   &nbsp;
 
 = link_to "Import", "/product_import/new", :class => "btn btn-warning pull-right"
+= form_tag "/products", :method => "get" do
+  %span.input-icon
+    = text_field_tag :search
+    %i.ace-icon.fa.fa-search.nav-search-icon
+    = submit_tag "Search"
+
 %table#simple-table.table.table-bordered.table-hover
   %thead
     %tr
@@ -38,10 +44,6 @@
           .hidden-sm.hidden-xs.btn-group
             %button.btn.btn-xs.btn-danger
               = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, product, method: :delete, data: { confirm: 'Are you sure?' }
-          
-
-
-
 = paginate @products
 %br/
 
