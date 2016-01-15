@@ -15,7 +15,7 @@ class Product < ActiveRecord::Base
 	  	if params[:search].present?
 		  	category = Category.where("name= ?", params[:search])
 		  	if category.present?
-		  		products = products.where("category_id IN (?)", category.last.id)
+		  		products = products.where("category_id IN (?)", category.last.idl)
 		  	else
 		  		products = products.where("title LIKE ? OR price LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
 		  	end
