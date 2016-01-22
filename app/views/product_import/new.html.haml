@@ -30,6 +30,6 @@
       %button.btn.btn-primary
         %i.ace-icon.fa.fa-cloud-upload
           Import
-      %button.btn.btn-success.pull-right
-        %i.ace-icon.fa.fa-cloud-download
-          = link_to 'Download Template', "/Untitled 1.xls", :target => "_blank"
+      
+      
+      = link_to "<i class='ace-icon fa fa-cloud-download'></i>Download Template".html_safe, "/Untitled 1.xls", :target => "_blank", :class => "btn btn-success pull-right"

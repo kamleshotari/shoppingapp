@@ -21,11 +21,9 @@
         %td= user.phone_number
         %td
           .hidden-sm.hidden-xs.btn-group
-            %button.btn.btn-xs.btn-success
-              = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, user
+            = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, user, :class => "button btn btn-xs btn-success"
           .hidden-sm.hidden-xs.btn-group
-            %button.btn.btn-xs.btn-danger
-              = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, user, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, user, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button btn btn-xs btn-danger"
           
 
 = paginate @users

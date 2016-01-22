@@ -36,14 +36,11 @@
         %td= product.color
         %td
           .hidden-sm.hidden-xs.btn-group
-            %button.btn.btn-xs.btn-success
-              = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, product
+            = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, product, :class => "button btn btn-xs btn-success"
           .hidden-sm.hidden-xs.btn-group
-            %button.btn.btn-xs.btn-info
-              = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_product_path(product)
+            = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_product_path(product), :class => "button btn btn-xs btn-info"
           .hidden-sm.hidden-xs.btn-group
-            %button.btn.btn-xs.btn-danger
-              = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, product, method: :delete, data: { confirm: 'Are you sure?' }
+            = link_to "<span class='ace-icon fa fa-trash-o bigger-120'>Delete</span>".html_safe, product, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button btn btn-xs btn-danger"
 = paginate @products
 %br/
 

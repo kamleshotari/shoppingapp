@@ -2,8 +2,6 @@
 = render "details"
 %br/ 
 .hidden-sm.hidden-xs.btn-group
- %button.btn.btn-xs.btn-info
-  = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_category_path(@category)
+ = link_to "<span class='ace-icon fa fa-pencil bigger-120'>Edit</span>".html_safe, edit_category_path(@category), :class => "button btn btn-xs btn-info"
 .hidden-sm.hidden-xs.btn-group
- %button.btn.btn-xs.btn-success
-  = link_to "<span class='ace-icon fa fa-reply icon-only bigger-120'>Back</span>".html_safe, categories_path
+ = link_to "<span class='ace-icon fa fa-reply icon-only bigger-120'>Back</span>".html_safe, categories_path, :class => "button btn btn-xs btn-success"
