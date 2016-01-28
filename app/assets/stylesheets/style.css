@@ -1031,7 +1031,7 @@ table {
 .register_account table td {
 	width: 100%;
 }
-.register_account form input[type="text"], .register_account form select {
+.register_account form input[type="text"], .register_account form select, .register_account form input[type="email"], .register_account form input[type="password"] {
 	font-size:0.95em;
 	color:#777;
 	padding: 8px;
@@ -1066,12 +1066,11 @@ p.terms {
 	font-size: 12px;
 	padding: 15px 0 0 15px;
 }
-button.grey{
+button.grey, input[type="submit"].grey{
 	display: inline-block;
 	text-decoration: none;
 	cursor: pointer;
 	background: #555;
-	font-size:0.95;
 	line-height: 16px;
 	text-transform: uppercase;
 	padding:10px 30px;

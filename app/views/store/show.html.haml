@@ -1,0 +1,55 @@
+
+.mens
+.main
+  .wrap
+    %ul.breadcrumb.breadcrumb__t
+      %a.home{:href => "#"} Home
+      \/
+      %a{:href => "#"} Dolor sit amet
+      \/ Lorem ipsum dolor sit amet
+    .cont.span_2_of_3
+      .grid.images_3_of_2
+        %ul#etalage
+          %li
+            %a{:href => "optionallink.html"}
+              %img.etalage_thumb_image{:src => @product.image.url}/
+              %img.etalage_source_image{:src => @product.image.url}/
+        .clearfix
+      .desc1.span_3_of_2
+        %h3.m_3 Lorem ipsum dolor sit amet
+        %p.m_5
+          = "Rs. " + @product.price.to_s
+          %span.reducedfrom Rs. 999
+          %a{:href => "#"} click for offer
+        .btn_form
+          %form
+            %input{:title => "", :type => "submit", :value => "buy"}/
+        %span.m_link
+          %a{:href => "#"} login to save in wishlist
+        %p.m_text2 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
+      .clear
+      
+        
+      .toogle
+        %h3.m_3 Product Details
+        %p.m_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+      .toogle
+        %h3.m_3 More Information
+        %p.m_text Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.
+    .rsingle.span_1_of_single
+.clear
+
+:javascript
+  jQuery(document).ready(function($){
+    $('#etalage').etalage({
+      thumb_image_width: 360,
+      thumb_image_height: 360,
+      source_image_width: 900,
+      source_image_height: 900,
+      show_hint: true,
+      click_callback: function(image_anchor, instance_id){
+        alert('Callback example:\nYou clicked on an image with the anchor: "'+image_anchor+'"\n(in Etalage instance: "'+instance_id+'")');
+      }
+    });
+
+  });

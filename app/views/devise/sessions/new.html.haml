@@ -1,46 +1,30 @@
-.row
-  .col-sm-10.col-sm-offset-1
-    .login-container
-      .space-6
-      .position-relative
-        #login-box.login-box.widget-box.no-border.visible
-          .widget-body
-            .widget-main
-              %h4.header.blue.lighter.bigger
-                Please Enter Your Information
-              .space-6
-              = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-                %fieldset
-                  %label.block.clearfix
-                    %span.block.input-icon.input-icon-right
-                      = f.email_field :email, :class => "form-control", :placeholder => "Email"
-                      %i.ace-icon.fa.fa-user
-                  %label.block.clearfix
-                    %span.block.input-icon.input-icon-right
-                      = f.password_field :password, :class => "form-control", :placeholder => "Password"
-                      %i.ace-icon.fa.fa-lock
-                  .space
-                  .clearfix
-                    
-                    %label.inline
-                      %input.ace{:type => "checkbox"}
-                      %span.lbl Remember Me
-                    %button.width-35.pull-right.btn.btn-sm.btn-success
-                      %i.ace-icon.fa.fa-key
-                      = f.submit "Log in", :class => "btn btn-sm btn-success"
-                      %span.bigger-110 
-                  
-                  
-            / /.widget-main
-            .toolbar.clearfix
-              %div
-                %a.forgot-password-link{:href => new_user_password_path}
-                  %i.ace-icon.fa.fa-arrow-left
-                  I forgot my password
-              %div
-                %a.user-signup-link{:href => new_user_registration_path}
-                  I want to register
-                  %i.ace-icon.fa.fa-arrow-right
-          / /.widget-body
-        / /.login-box
-              
+.login
+  .wrap
+    .col_1_of_login.span_1_of_login
+      %h4.title New Customers
+     
+      .button1
+        %a{:href => new_user_registration_path}
+          %input{:name => "Submit", :type => "submit", :value => "Create an Account"}/
+      .clear
+    .col_1_of_login.span_1_of_login
+      .login-title
+        %h4.title Registered Customers
+        #loginbox.loginbox
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            %fieldset.input
+              %p#login-form-username
+                %label Email
+                %br/
+                = f.email_field :email, :class => "form-control"
+              %p#login-form-password
+                %label Password 
+                %br/
+                = f.password_field :password, :class => "form_control"
+              .remember
+                %p#login-form-remember
+                  %label{:for => "modlgn_remember"}
+                    %a{:href => new_user_password_path} Forget Your Password ?
+                %input.button{:name => "Submit", :type => "submit", :value => "Login"}/
+                .clear
+    .clear

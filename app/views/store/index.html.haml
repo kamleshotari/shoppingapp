@@ -38,7 +38,7 @@
           - @products.each_with_index do |p, i|
             - counter += 1
             .col_1_of_3.span_1_of_3
-              %a{:href => "single.html"}
+              %a{:href => "/store/#{p.id}"}
                 .inner_content.clearfix
                   .product_image
                     = image_tag(p.image.url)
@@ -59,11 +59,6 @@
               </div>
               </div>
               <div class='top-box'>
-
-          
-        
-        
-        
       .rsidebar.span_1_of_left
         .top-border
         .border

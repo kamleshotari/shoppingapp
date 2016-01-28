@@ -7,16 +7,19 @@
           %a{:href => "login.html"} Account
         |
         %li
-          %a{:href => "checkout.html"} Wishlist
-        |
-        %li
           %a{:href => "checkout.html"} Checkout
         |
-        %li
-          %a{:href => "login.html"} Log In
-        |
-        %li
-          %a{:href => "register.html"} Sign Up
+        - if user_signed_in?
+          %li
+            %a{:href => "#{destroy_user_session_path}"} Logout
+            
+        - else
+          %li
+            %a{:href => "#{new_user_session_path}"} Log In
+          |
+          %li
+            %a{:href => "#{new_user_registration_path}"} Sign Up
+        
     .clear
 .header-bottom
   .wrap

@@ -4,12 +4,14 @@ Rails.application.routes.draw do
   post '/product_import' => "product_import#create"
 
   get '/store' => "store#index"
+  get '/store/:id' => "store#show"
   get '/dashboard' => "dashboard#index"
 
 
-  devise_for :users
+  devise_for :users 
   devise_scope :user do
     get '/sign_up' => 'devise/registrations#new'
+   
 end
   resources :products 
   

@@ -1,7 +1,14 @@
 class StoreController < ApplicationController
   layout "user_layout"
   def index
-    @category = Category.find_by_code(params[:code])
-    @products = Product.where("category_id =?", @category.id)
+  	if params[:code].present?
+    	@category = Category.where(params[:code])
+    else 
+    	@category = Category.all
+    end
+    @products = Product.where("category_id IN (?)", @category.pluck(:id))
+  end
+  def show
+  	@product = Product.find(params[:id])
   end
 end

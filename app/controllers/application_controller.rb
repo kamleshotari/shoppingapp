@@ -14,4 +14,21 @@ class ApplicationController < ActionController::Base
   	end
   end
 
+  def after_sign_up_path_for(resource)
+    if current_user.is_admin
+      products_url
+    else
+      store_index_url
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    
+    if current_user.is_admin == true
+      products_url
+    else
+      "/store"
+    end
+  end
+
 end
