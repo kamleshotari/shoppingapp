@@ -11,3 +11,5 @@ before_script:
   - mysql -e 'create database demoshopping_test'
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare --trace
+  - bundle exec rspec spec -fd --color
