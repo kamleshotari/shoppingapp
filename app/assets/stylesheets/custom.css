@@ -40,3 +40,7 @@
 
 
 .field_with_errors .message{color:red;}
+#bagTable {border:1px solid #C4C4C4;width: 100%;}
+#bagTable th{background-color: #C4C4C4}
+
+#bagTable tr{border-bottom: 1px solid #C4C4C4}

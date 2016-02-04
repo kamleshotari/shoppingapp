@@ -1,0 +1,27 @@
+- if cart.present? && cart.line_items.present?
+  %ul.icon1.sub-icon1.profile_img
+    %li
+      %a.active-icon.c2{:href => "#"}
+      %ul.sub-icon1.list
+        
+        - cart.line_items.each do |item|
+          %li
+            %h3 
+              = item.product.title
+            %a{:href => "/store/#{item.product.id}"}
+          %li
+            %p
+              = item.product.price
+  %ul.last
+    %li
+      %a{:href => '/store/cart_details'} Cart(#{cart.total_line_item})
+- else
+  %ul.icon1.sub-icon1.profile_img
+    %li
+      %a.active-icon.c2{:href => "#"}
+      %ul.sub-icon1.list
+        %li
+          %h3 No item present
+  %ul.last
+    %li
+      %a{:href => '/store/cart_details'} Cart(0)

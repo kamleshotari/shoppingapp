@@ -157,7 +157,7 @@ body{
 	text-indent: -9999px;
 	outline:none;
 	cursor: pointer;
-	background: url("../images/search.png") no-repeat 0px 3px; 
+	background: url("/assets/search.png") no-repeat 0px 3px; 
 	width:30px;
 	height:25px;
 	padding:8px;
@@ -305,14 +305,14 @@ body{
 	vertical-align:middle;
 }
 .c1{
-	background: url(../images/tag.png) no-repeat 0px 0px;
+	background: url(/assets/tag.png) no-repeat 0px 0px;
 	width:42px;
 	height:42px;
 	display: inline-block;
 	vertical-align: middle;
 }
 .c2{
-	background: url(../images/cart.png) no-repeat 0px 1px;
+	background: url(/assets/cart.png) no-repeat 0px 1px;
 	width:42px;
 	height:42px;
 	display: inline-block;
@@ -479,7 +479,7 @@ p.title a:hover{
 }
 .cart-right {
 	float: right;
-	background: url(../images/cart2.png)2px 0px #7db122;
+	background: url(/assets/cart2.png)2px 0px #7db122;
 	border-radius: 100px;
 	-webkit-border-radius: 100px;
 	-moz-border-radius: 100px;
@@ -491,7 +491,7 @@ p.title a:hover{
 }
 .span_1_of_3:hover .cart-right{
 	float: right;
-	background: url(../images/cart3.png)2px 0px #000;
+	background: url(/assets/cart3.png)2px 0px #000;
 	border-radius: 100px;
 	width: 40px;
 	height: 40px;
@@ -549,7 +549,7 @@ span.reducedfrom {
 	margin-bottom:4%;
 }
 .left-banner{
-	background: url(../images/t-img1.jpg)no-repeat 0px 0px;
+	background: url(/assets/t-img1.jpg)no-repeat 0px 0px;
 	width:226px;
 	height:450px;
 }
@@ -736,7 +736,7 @@ p.m_2{
 	width:50px;
 	height:50px;
 	display: block;
-	background: url(../images/f-tw.png) no-repeat;
+	background: url(/assets/f-tw.png) no-repeat;
 }
 .recent-tweet-info {
 	float: right;
@@ -754,7 +754,7 @@ p.m_2{
 	color:#fff;
 }
 ul.f-list1 li {
-	list-style-image: url(../images/f-icon.png);
+	list-style-image: url(/assets/f-icon.png);
 	margin: 0 15px 5px;
 }
 ul.f-list1 li a {
@@ -793,7 +793,7 @@ ul.f-list1 li a:hover {
 	height: 40px;
 	width: 40px;
 	display: block;
-	background: url(../images/img-sprite.png);
+	background: url(/assets/img-sprite.png);
 }
 .social-media li a:hover {
 	zoom: 1;
@@ -876,16 +876,16 @@ ul.f-list1 li a:hover {
 }
 /*------------end social simptip----------------*/
 .social-media li:nth-child(1) a{
-	background: url(../images/img-sprite.png) -20px -170px;
+	background: url(/assets/img-sprite.png) -20px -170px;
 }
 .social-media li:nth-child(2) a{
-	background: url(../images/img-sprite.png) -68px -170px;
+	background: url(/assets/img-sprite.png) -68px -170px;
 }
 .social-media li:nth-child(3) a{
-	background: url(../images/img-sprite.png) -112px -170px;
+	background: url(/assets/img-sprite.png) -112px -170px;
 }
 .social-media li:nth-child(4) a{
-	background: url(../images/img-sprite.png) -157px -170px;
+	background: url(/assets/img-sprite.png) -157px -170px;
 }
 /*--footer-bottom--*/
 .footer-bottom{
@@ -1221,7 +1221,7 @@ ul.dc_pagination li a:hover{
 	background: transparent;
 }
 .metro.focus:after{
-	background:url(../images/minus.gif);
+	background:url(/assets/minus.gif);
 	width: 13px;
 	height: 13px;
 	right: 10px;
@@ -1235,7 +1235,7 @@ ul.dc_pagination li a:hover{
 	right: 10px;
 	top: 50%;
 	margin-top: -4px;
-	background: url(../images/plus.gif);
+	background: url(/assets/plus.gif);
 	width: 13px;
 	height: 13px;
 	-webkit-transform-origin: 50% 20%;
@@ -1844,11 +1844,11 @@ p.m_text{
 }
 .nbs-flexisel-nav-left {
 	left: 0px;
-	background: url(../images/img-sprite.png) no-repeat -23px -217px;
+	background: url(/assets/img-sprite.png) no-repeat -23px -217px;
 }
 .nbs-flexisel-nav-right {
 	right: 0px;
-	background: url(../images/img-sprite.png) no-repeat -51px -217px;
+	background: url(/assets/img-sprite.png) no-repeat -51px -217px;
 }
 .toogle{
 	margin-top:4%;
@@ -2019,7 +2019,7 @@ p.m_text2{
 	display: block;
 	width: 41px;
 	height: 38px;
-	background: url(../images/quotes.png) 0 0 no-repeat;
+	background: url(/assets/quotes.png) 0 0 no-repeat;
 	content: "";
 }
 .testimonials .testi-item blockquote > a:hover {
@@ -2058,7 +2058,7 @@ span.rollover {
 	-o-transition-duration: 1s;
 	-moz-transition-duration: 1s;
 	-webkit-transition: -webkit-transform 1s;
-	background: url(../images/magnify-alt.png) center center no-repeat rgba(0, 0, 0, 0.4);
+	background: url(/assets/magnify-alt.png) center center no-repeat rgba(0, 0, 0, 0.4);
 	cursor: pointer;
 	height: 215px;
 	width: 252px;
@@ -2085,7 +2085,7 @@ ul.delivery-list{
 ul.delivery-list li{
 	font-size: 0.85em;
 	margin: 0 0 8px 10px;
-	list-style-image: url(../images/list_marker.png);
+	list-style-image: url(/assets/list_marker.png);
 }
 ul.delivery-list li a{
 	color: #777;

@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :line_items
+  resources :carts
   get '/product_import/new' => "product_import#new"
 
   post '/product_import' => "product_import#create"
 
   get '/store' => "store#index"
+  get '/store/cart_details' => "store#cart_details"
   get '/store/:id' => "store#show"
+
   get '/dashboard' => "dashboard#index"
 
 

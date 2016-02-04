@@ -7,6 +7,7 @@ class Devise::SessionsController < DeviseController
 
   # GET /resource/sign_in
   def new
+    @cart = current_cart
     self.resource = resource_class.new(sign_in_params)
     clean_up_passwords(resource)
     yield resource if block_given?
@@ -15,12 +16,13 @@ class Devise::SessionsController < DeviseController
 
   # POST /resource/sign_in
   def create
+    @cart = current_cart
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
     yield resource if block_given?
     respond_with resource, location: after_sign_in_path_for(resource)
-  end
+    end
 
   # DELETE /resource/sign_out
   def destroy
@@ -48,7 +50,7 @@ class Devise::SessionsController < DeviseController
   end
 
   def translation_scope
-    'devise.sessions'
+    'devise.session'
   end
 
   private

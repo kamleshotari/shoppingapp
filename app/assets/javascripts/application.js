@@ -17,7 +17,7 @@
 //= require bootstrap.min
 //= require bootstrap-editable.min
 //= require bootstrap-multiselect.min
-//= require ace.minfwslider
+//= require fwslider
 //= require ace-elements.min
 //= require ace-extra.min
 //= require chosen.jquery.min

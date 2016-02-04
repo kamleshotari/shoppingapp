@@ -26,12 +26,16 @@
     .header-bottom-left
       .logo
         %a{:href => "index.html"}
-          %img{:alt => "", :src => "images/logo.png"}/
+          %img{:alt => "", :src => "/assets/logo.png"}/
       .menu
         %ul.megamenu.skyblue
-          %li.active.grid
+          %li.showhide{:style => "display: none;"}
+            %span.title MENU
+            %span.icon1
+            %span.icon2
+          %li.active.grid{:style => "display: inline-block;"}
             %a{:href => "index.html"} Home
-          %li
+          %li{:style => "display: inline-block;"}
             %a.color4{:href => "#"} women
             .megapanel
               .row
@@ -73,7 +77,7 @@
                         %a{:href => "womens.html"} Hi-index
                       %li
                         %a{:href => "womens.html"} Progressive
-          %li
+          %li{:style => "display: inline-block;"}
             %a.color5{:href => "#"} Men
             .megapanel
               .col1
@@ -114,35 +118,16 @@
                       %a{:href => "mens.html"} Hi-index
                     %li
                       %a{:href => "mens.html"} Progressive
-          %li
+          %li{:style => "display: inline-block;"}
             %a.color6{:href => "other.html"} Other
-          %li
+          %li{:style => "display: inline-block;"}
             %a.color7{:href => "other.html"} Purchase
     .header-bottom-right
-      .tag-list
-        %ul.icon1.sub-icon1.profile_img
-          %li
-            %a.active-icon.c1{:href => "#"}
-            %ul.sub-icon1.list
-              %li
-                %h3 sed diam nonummy
-                %a{:href => ""}
-              %li
-                %p
-                  Lorem ipsum dolor sit amet, consectetuer
-                  %a{:href => ""} adipiscing elit, sed diam
-        %ul.icon1.sub-icon1.profile_img
-          %li
-            %a.active-icon.c2{:href => "#"}
-            %ul.sub-icon1.list
-              %li
-                %h3 No Products
-                %a{:href => ""}
-              %li
-                %p
-                  Lorem ipsum dolor sit amet, consectetuer
-                  %a{:href => ""} adipiscing elit, sed diam
-        %ul.last
-          %li
-            %a{:href => "#"} Cart(0)
+      .search
+        %input.textbox{:name => "s", :onblur => "if (this.value == '') {this.value = 'Search';}", :onfocus => "this.value = '';", :type => "text", :value => "Search"}/
+        %input#submit{:name => "submit", :type => "submit", :value => "Subscribe"}/
+        
+      .tag-list#cartDetail
+        = render :partial => "store/cart", :locals => {:cart => @cart}
+        
     .clear

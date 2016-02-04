@@ -4,6 +4,7 @@ class Devise::RegistrationsController < DeviseController
   layout "user_layout"
   # GET /resource/sign_up
   def new
+    @cart = current_cart
     build_resource({})
     set_minimum_password_length
     yield resource if block_given?
@@ -12,6 +13,7 @@ class Devise::RegistrationsController < DeviseController
 
   # POST /resource
   def create
+    @cart = current_cart
     build_resource(sign_up_params)
 
     resource.save
@@ -36,6 +38,7 @@ class Devise::RegistrationsController < DeviseController
 
   # GET /resource/edit
   def edit
+    @cart = current_cart
     render :edit
   end
 
@@ -43,6 +46,7 @@ class Devise::RegistrationsController < DeviseController
   # We need to use a copy of the resource because we don't want to change
   # the current user in place.
   def update
+    @cart = current_cart
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 

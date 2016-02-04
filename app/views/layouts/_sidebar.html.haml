@@ -43,4 +43,9 @@
         %i.ace-icon.fa.fa-user
         %span.menu-text Users
       %b.arrow  
+    %li{:class => params[:controller] == "carts" ? "active" : ""}
+      %a{:href => "#{carts_url}"}
+        %i.menu-icon.fa.fa-tachometer
+        %span.menu-text Cart
+      %b.arrow
   .nav-list
