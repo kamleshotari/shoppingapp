@@ -29,6 +29,8 @@ gem 'devise'
 gem 'roo-xls'
 gem "iconv", "~> 1.0.3"
 gem 'remotipart', '~> 1.2'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
