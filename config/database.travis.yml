@@ -1,0 +1,10 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: travis
+  host: localhost
+
+test:
+  <<: *default
+  database: demoshopping_test
