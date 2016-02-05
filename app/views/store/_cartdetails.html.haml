@@ -1,0 +1,24 @@
+%table#bagTable
+  %tbody
+    %tr#shopping_head
+      %th Product Image
+      %th Description
+      %th Color
+      %th Qty
+      %th Price
+      %th Delete
+    - @cart.line_items.each do |item|
+      %tr
+        %td 
+          %img{:src => item.product.image.url(:thumb)}
+        %td 
+          = item.product.description
+        %td 
+          = item.product.color
+        %td 
+          = item.quantity
+        %td 
+          = item.total_price
+        %td 
+       
+          = link_to "Remove", item, :method => :delete, :remote => true

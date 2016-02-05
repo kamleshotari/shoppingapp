@@ -81,9 +81,13 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.xml
   def destroy
+    
     @line_item = LineItem.find(params[:id])
     @line_item.destroy
-    redirect_to '/store'
+    @cart = current_cart
+    respond_to do |format|
+      format.js
+    end
     
   end
 end

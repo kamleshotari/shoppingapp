@@ -1,5 +1,5 @@
 class CartsController < ApplicationController                 
-  before_filter :authenticate_admin
+  #before_filter :authenticate_admin
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
   # GET /carts
   # GET /carts.xml
@@ -82,18 +82,16 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.xml
   def destroy
-    #@cart = Cart.find(params[:id])
+    @cart = current_cart
     @cart.destroy
-    # session[:cart_id] = nil
+    session[:cart_id] = nil
 
+    @cart = current_cart
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
-      format.json { head :no_content }
+      format.js
     end
   end
-  def remove_item product_id, cart_items
-    cart.delete(product_id)
-  end
+  
   private
   def set_cart
       @cart = Cart.find(params[:id])
