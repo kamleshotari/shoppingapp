@@ -39,6 +39,21 @@
     .profile-info-value
       %p
         = image_tag(@product.image.url(:thumb))
+  .profile-info-row
+    .profile-info-name View1
+    .profile-info-value
+      %p
+        = image_tag(@product.view1.url(:thumb))
+  .profile-info-row
+    .profile-info-name View2
+    .profile-info-value
+      %p
+        = image_tag(@product.view2.url(:thumb))
+  .profile-info-row
+    .profile-info-name View3
+    .profile-info-value
+      %p
+        = image_tag(@product.view3.url(:thumb))
 
 
   

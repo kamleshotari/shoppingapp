@@ -5,24 +5,26 @@
       .grid.images_3_of_2
         %ul#etalage
           %li
-            /%a{:href => "optionallink.html"}
-            %img.etalage_thumb_image{:src => @product.image.url}/
+            %img.etalage_thumb{:src => @product.image.url}/
             %img.etalage_source_image{:src => @product.image.url}/
+          %li.etalage_thumb
+            %img.etalage_thumb{:src => @product.view1.url}/
+            %img.etalage_source_image{:src => @product.view1.url}/
+          %li.etalage_thumb
+            %img.etalage_thumb{:src => @product.view2.url}/
+            %img.etalage_source_image{:src => @product.view2.url}/
+          %li.etalage_thumb
+            %img.etalage_thumb{:src => @product.view3.url}/
+            %img.etalage_source_image{:src => @product.view3.url}/
         .clearfix
       .desc1.span_3_of_2
         %h3.m_3 Lorem ipsum dolor sit amet
         %p.m_5
           = "Rs. " + @product.price.to_s
-          %span.reducedfrom Rs. 999
-          %a{:href => "#"} click for offer
+          
         .btn_form           
           = button_to "Add to Cart", line_items_path(:product_id => @product.id), :remote => true
-
-        
-       
       .clear
-      
-        
       .toogle
         %h3.m_3 Product Details
         = @product.description

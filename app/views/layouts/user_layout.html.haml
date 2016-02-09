@@ -7,14 +7,18 @@
     %script{:src => "/assets/app_js.js", :type => "text/javascript"}
     / start menu
     %link{:href => "/assets/megamenu.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
+    
     %link{:href => "/assets/custom.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "/assets/megamenu.js", :type => "text/javascript"}
     :javascript
       $(document).ready(function(){$(".megamenu").megamenu();});
     / start slider
     %link{:href => "/assets/fwslider.css", :media => "all", :rel => "stylesheet"}/
+    %link{:href => "/assets/nivo-slider.css", :media => "all", :rel => "stylesheet", :type => "text/css"}/
     %script{:src => "/assets/jquery-ui.min.js"}
     %script{:src => "/assets/css3-mediaqueries.js"}
+    %script{:src => "/assets/jquery.nivo.slider.js"}
+    %script{:src => "/assets/jquery.slides.min.jquery.js"}
     %script{:src => "/assets/fwslider.js"}
     / end slider
     %script{:src => "/assets/jquery.easydropdown.js"}

@@ -59,6 +59,7 @@
               </div>
               </div>
               <div class='top-box'>
+        = paginate @products
       .rsidebar.span_1_of_left
         .top-border
         .border
@@ -87,4 +88,5 @@
             %form
               %input.textbox{:name => "userName", :type => "text"}/
               %input{:type => "submit", :value => "Subscribe"}/
+
       .clear

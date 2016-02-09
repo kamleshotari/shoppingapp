@@ -18,6 +18,8 @@
 //= require bootstrap-editable.min
 //= require bootstrap-multiselect.min
 //= require fwslider
+//= require jquery.nivo.slider
+//= require slides.min.jquery 
 //= require ace-elements.min
 //= require ace-extra.min
 //= require chosen.jquery.min

@@ -12,7 +12,15 @@ class Product < ActiveRecord::Base
 	validates :price, :presence => true,
 						:numericality => true
 	has_attached_file :image, styles: { medium: "274x250>", thumb: "100x100>" }
+	has_attached_file :view1, styles: { medium: "274x250>", thumb: "100x100>" }
+	has_attached_file :view2, styles: { medium: "274x250>", thumb: "100x100>" }
+	has_attached_file :view3, styles: { medium: "274x250>", thumb: "100x100>" }
+
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  	validates_attachment_content_type :view1, content_type: /\Aimage\/.*\Z/
+  	validates_attachment_content_type :view2, content_type: /\Aimage\/.*\Z/
+  	validates_attachment_content_type :view3, content_type: /\Aimage\/.*\Z/
+
   	validates	:category_id, :presence => true
 
 	  def self.search(params)
