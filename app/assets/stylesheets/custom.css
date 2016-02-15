@@ -42,7 +42,10 @@
 .field_with_errors .message{color:red;}
 #bagTable{width: 100%}
 #bagTable td{border:1px solid #C4C4C4;width: 0%;text-align: center;vertical-align: middle;}
-#bagTable th{background-color: #C4C4C4;width: 18%;font-weight: bold;text-transform: uppercase}
+#bagTable th{background-color: #4cb1ca;width: 18%;font-weight: bold;text-transform: uppercase;}
 
 #bagTable tr{border-bottom: 1px solid #C4C4C4}
 h4.title {font-weight: bold}
+#bagTable .field input[type='text']{width: 40px;padding: 5px;text-align: center;}
+
+a.button_with_image_save {display:block;cursor: pointer;width:30px;height:30px;text-indent: 35%;}

@@ -66,9 +66,8 @@ class LineItemsController < ApplicationController
   # PUT /line_items/1.xml
   def update
     @line_item = LineItem.find(params[:id])
-
     respond_to do |format|
-      if @line_item.update_attributes(params[:line_item])
+      if @line_item.update_attributes(line_item_params)
         format.html { redirect_to(@line_item, :notice => 'Line item was successfully updated.') }
         format.xml  { head :ok }
       else
@@ -87,7 +86,11 @@ class LineItemsController < ApplicationController
     @cart = current_cart
     respond_to do |format|
       format.js
-    end
-    
+    end   
   end
+
+  private
+    def line_item_params
+      params.require(:line_item).permit(:product_id, :cart_id, :order_id, :quantity)
+    end
 end

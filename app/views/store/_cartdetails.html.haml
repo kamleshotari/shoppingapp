@@ -7,6 +7,7 @@
       %th Qty
       %th Price
       %th Delete
+
     - @cart.line_items.each do |item|
       %tr
         %td 
@@ -15,10 +16,33 @@
           = item.product.description
         %td 
           = item.product.color
-        %td 
-          = item.quantity
-        %td 
+        %td
+          = form_for item, :html => {:id => "CartItem_#{item.id}", method: 'put'}, :remote => true do |f|
+            .field
+              = f.text_field :quantity, :value => item.quantity, :rel => "#{item.id}", :single_price => item.product.price
+        %td.quantity.total-pr{:id => "total_price_#{item.id}"}
           = item.total_price
         %td 
-       
-          = link_to "Remove", item, :method => :delete, :remote => true
+          = link_to image_tag("delete.png", :border => 0), item, :method => :delete, :remote => true, :class =>'button_with_image_save'
+
+    %tr
+      %td{:style => "font-weight: bold"} Grand Total : 
+      %td.quantity#grandTotal{:colspan => 5, :style => "text-align:right;padding-right: 210px;font-weight: bold"}
+        = @cart.grand_total_price
+      
+           
+:javascript
+
+  $("#shopping_bag input[type='text']").on("change",function(){
+    grand_total=0;
+    quantity=$(this).val();
+    price = $(this).attr("single_price");
+    console.log(price)
+    total_price=price*quantity;
+    $("#total_price_" + $(this).attr('rel')).html(total_price);
+    $(".total-pr").each(function(i, val){
+      grand_total += parseFloat($(val).html());
+    })
+    $("#grandTotal").html(grand_total)
+    $("#CartItem_" + $(this).attr('rel')).submit();
+  })
