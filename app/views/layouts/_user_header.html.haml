@@ -4,10 +4,7 @@
     .cssmenu
       %ul
         %li.active
-          %a{:href => "login.html"} Account
-        |
-        %li
-          %a{:href => "checkout.html"} Checkout
+          %a{:href => "store/current_user_details"} Account
         |
         - if user_signed_in?
           %li
@@ -35,97 +32,21 @@
             %span.icon2
           %li.active.grid{:style => "display: inline-block;"}
             %a{:href => '/store'} Home
+        
           %li{:style => "display: inline-block;"}
-            %a.color4{:href => "#"} women
-            .megapanel
-              .row
-                .col1
-                  .h_nav
-                    %h4 Contact Lenses
-                    %ul
-                      %li
-                        %a{:href => "womens.html"} Daily-wear soft lenses
-                      %li
-                        %a{:href => "womens.html"} Extended-wear
-                      %li
-                        %a{:href => "womens.html"} Lorem ipsum
-                      %li
-                        %a{:href => "womens.html"} Planned replacement
-                .col1
-                  .h_nav
-                    %h4 Sun Glasses
-                    %ul
-                      %li
-                        %a{:href => "womens.html"} Heart-Shaped
-                      %li
-                        %a{:href => "womens.html"} Square-Shaped
-                      %li
-                        %a{:href => "womens.html"} Round-Shaped
-                      %li
-                        %a{:href => "womens.html"} Oval-Shaped
-                .col1
-                  .h_nav
-                    %h4 Eye Glasses
-                    %ul
-                      %li
-                        %a{:href => "womens.html"} Anti Reflective
-                      %li
-                        %a{:href => "womens.html"} Aspheric
-                      %li
-                        %a{:href => "womens.html"} Bifocal
-                      %li
-                        %a{:href => "womens.html"} Hi-index
-                      %li
-                        %a{:href => "womens.html"} Progressive
+            %a.color4{:href => "/store?code=wm-001"} women
+
+            
           %li{:style => "display: inline-block;"}
-            %a.color5{:href => "#"} Men
-            .megapanel
-              .col1
-                .h_nav
-                  %h4 Contact Lenses
-                  %ul
-                    %li
-                      %a{:href => "mens.html"} Daily-wear soft lenses
-                    %li
-                      %a{:href => "mens.html"} Extended-wear
-                    %li
-                      %a{:href => "mens.html"} Lorem ipsum
-                    %li
-                      %a{:href => "mens.html"} Planned replacement
-              .col1
-                .h_nav
-                  %h4 Sun Glasses
-                  %ul
-                    %li
-                      %a{:href => "mens.html"} Heart-Shaped
-                    %li
-                      %a{:href => "mens.html"} Square-Shaped
-                    %li
-                      %a{:href => "mens.html"} Round-Shaped
-                    %li
-                      %a{:href => "mens.html"} Oval-Shaped
-              .col1
-                .h_nav
-                  %h4 Eye Glasses
-                  %ul
-                    %li
-                      %a{:href => "mens.html"} Anti Reflective
-                    %li
-                      %a{:href => "mens.html"} Aspheric
-                    %li
-                      %a{:href => "mens.html"} Bifocal
-                    %li
-                      %a{:href => "mens.html"} Hi-index
-                    %li
-                      %a{:href => "mens.html"} Progressive
-          %li{:style => "display: inline-block;"}
-            %a.color6{:href => "other.html"} Other
-          %li{:style => "display: inline-block;"}
-            %a.color7{:href => "other.html"} Purchase
+            %a.color5{:href => "/store?code=m-001"} Men
+        /- @category.products.each do |product|
+        /end   
     .header-bottom-right
       .search
-        %input.textbox{:name => "s", :onblur => "if (this.value == '') {this.value = 'Search';}", :onfocus => "this.value = '';", :type => "text", :value => "Search"}/
-        %input#submit{:name => "submit", :type => "submit", :value => "Subscribe"}/
+        = form_tag "/store", :method => "get" do
+          = text_field_tag :search
+          = submit_tag "Search"
+        
         
       .tag-list#cartDetail
         = render :partial => "store/cart", :locals => {:cart => @cart}

@@ -1,9 +1,11 @@
 .register_account
   .wrap
     .submit
-      = button_to 'EMPTY CART', cart_path(@cart), :method => :delete, data: {:confirm => 'Are you sure?'}, :style => "float: right", :remote => true
+      = link_to 'EMPTY CART', cart_path(@cart), :method => :delete, data: {:confirm => 'Are you sure?'}, :style => "float: right", :remote => true, :class => "link-btn"
     %h4.title 
       %b Shopping cart
     %p.cart
       #shopping_bag
         = render 'cartdetails'
+    = link_to "Checkout", new_order_url, :method=>:get, :class => "link-btn", :style => "float: right"
+    .clear

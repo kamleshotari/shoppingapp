@@ -1,16 +1,27 @@
-%p#notice= notice
-%p
-  %b Name:
-  = @order.name
-%p
-  %b Address:
-  = @order.address
-%p
-  %b Email:
-  = @order.email
-%p
-  %b Pay type:
-  = @order.pay_type
-= link_to 'Edit', edit_order_path(@order)
-|
-\#{link_to 'Back', orders_path}
+%h3 Thank You For placing your order !!!!!
+%br/
+
+%table#bagTable
+  %tbody
+    %tr#shopping_head
+      %th Product Image
+      %th Product Title
+      %th Qty
+      %th Price
+      
+
+    - @order.order_items.each do |item|
+      %tr
+        %td 
+          %img{:src => item.product.image.url(:thumb)}
+        %td 
+          = item.product.title
+        %td 
+          = item.quantity
+        %td
+          =item.total_price
+    %tr
+    %td{:style => "font-weight: bold"} Grand Total : 
+    %td{:colspan => 5, :style => "text-align:right;padding-right: 210px;font-weight: bold"}
+      = @order.grand_total_price
+%br/

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-
+  layout "user_layout"
   # GET /orders
   # GET /orders.json
   def index
@@ -25,11 +25,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
-
+    @cart = current_cart
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @order }
-    if find_or_create_cart.line_items.empty?
+    if current_cart.line_items.empty?
       redirect_to store_url, :notice => "Your cart is empty"
       return
     
@@ -46,15 +46,19 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @order.add_line_items_from_cart(find_or_create_cart)
+    @cart = current_cart
+
+    #@order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
+        
+        @order.add_order_item_from_cart(@cart)
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil                
         # send order confirmation email
         #Notifier.order_received(@order).deliver
-        format.html { redirect_to(orders_path, :notice => ('thanks')) }
+        format.html { redirect_to(@order, :notice => ('thanks')) }
         format.xml  { render :xml => @order, :status => :created,
           :location => @order }
       else
@@ -96,9 +100,9 @@ class OrdersController < ApplicationController
     def set_order
       @order = Order.find(params[:id])
     end
-
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :city, :state, :contact_no, :zip_code)
     end
 end

@@ -1,6 +1,31 @@
-%h1 New order
-
-= render 'form'
-
-= link_to 'Back', orders_path
-
+.register_account
+  .wrap
+    %h4.title Place Order
+    = form_for(@order) do |f|
+      .col_1_of_2.span_1_of_2
+        %div
+          = f.text_field :name, :class => "form-control", :placeholder => "Name"
+        %div
+          = f.text_field :address, :class => "form-control", :placeholder => "Address"
+        %div
+          = f.email_field :email, :class => "form-control", :placeholder => "Email"
+        %div
+          = f.text_field :city, :class => "form-control", :placeholder => "City"
+        %div
+          = f.text_field :state, :class => "form-control", :placeholder => "State"
+      .col_1_of_2.span_1_of_2
+        %div
+          = f.text_field :country, :class => "form-control", :placeholder => "Country"
+        %div
+          = f.text_field :zip_code, :class => "form-control", :placeholder => "Zip_code"
+        %div
+          = f.text_field :contact_no, :class => "form-control", :placeholder => "Contact Number"
+        %div
+          = f.select :pay_type, Order::PAYMENT_TYPES
+          %br/ 
+          %br/
+      .clear
+      = f.submit "Create Order", :class => "grey"
+      .clear
+        
+      

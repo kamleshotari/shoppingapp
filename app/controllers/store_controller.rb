@@ -3,9 +3,12 @@ class StoreController < ApplicationController
   skip_before_filter :authenticate_user!
   
   def index
+    
     @cart = current_cart
+    @products = Product.search(params).page(params[:page]).per(6)
+
   	if params[:code].present?
-    	@category = Category.where(params[:code])
+    	@category = Category.where('code = ?', params[:code])
     else 
     	@category = Category.all
     end
@@ -15,10 +18,15 @@ class StoreController < ApplicationController
   def show
     @cart = current_cart
   	@product = Product.find(params[:id])
+    
   end
 
   def cart_details
     @cart = current_cart
     
+  end
+  def current_user_details
+    @cart = current_cart
+    @user = current_user
   end
 end

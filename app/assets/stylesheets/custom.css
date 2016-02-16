@@ -49,3 +49,14 @@ h4.title {font-weight: bold}
 #bagTable .field input[type='text']{width: 40px;padding: 5px;text-align: center;}
 
 a.button_with_image_save {display:block;cursor: pointer;width:30px;height:30px;text-indent: 35%;}
+
+.link-btn{
+    background: #4cb1ca none repeat scroll 0 0;
+    border: medium none;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Exo 2",sans-serif;
+    font-size: 1em;
+    outline: medium none;
+    padding: 10px 30px;
+}

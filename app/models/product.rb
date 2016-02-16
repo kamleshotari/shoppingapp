@@ -6,7 +6,7 @@ class Product < ActiveRecord::Base
 	belongs_to :category
 	has_many :line_items
 	before_destroy :ensure_not_referenced_by_any_line_item
-
+	has_many :order_items
 	validates :title, :presence => {:message => "title can't be blank." }
 						
 	validates :price, :presence => true,
@@ -26,9 +26,9 @@ class Product < ActiveRecord::Base
 	  def self.search(params)
 	  	products = Product.all
 	  	if params[:search].present?
-		  	category = Category.where("name= ?", params[:search])
+		  	category = Category.where("name= ? or code= ?", params[:search], params[:search])
 		  	if category.present?
-		  		products = products.where("category_id IN (?)", category.last.idl)
+		  		products = products.where("category_id IN (?)", category.last.id)
 		  	else
 		  		products = products.where("title LIKE ? OR price LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
 		  	end
