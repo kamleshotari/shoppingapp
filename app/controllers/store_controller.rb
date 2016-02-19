@@ -23,10 +23,11 @@ class StoreController < ApplicationController
 
   def cart_details
     @cart = current_cart
-    
   end
+  
   def current_user_details
     @cart = current_cart
     @user = current_user
   end
+  
 end

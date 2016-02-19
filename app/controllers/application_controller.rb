@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_filter :authenticate_user!
-
+  add_flash_types :success, :warning, :danger, :info
   
 
   def authenticate_admin
@@ -31,22 +31,16 @@ class ApplicationController < ActionController::Base
       "/store"
     end
   end
-  # def set_i18n_locale_from_params
-  #     if params[:locale]
-  #       if I18n.available_locales.include?(params[:locale].to_sym)
-  #         I18n.locale = params[:locale]
-  #       else
-  #         flash.now[:notice] = 
-  #           "#{params[:locale]} translation not available"
-  #         logger.error flash.now[:notice]
-  #       end
-  #     end
 
-  #   end
-
-  #   def default_url_options
-  #     { :locale => I18n.locale }
-  #   end
+  def after_update_path_for(resource)
+    
+    if current_user.is_admin == true
+      users_url
+    else
+      "/store/current_user_details"
+    end
+  end
+  
   protected
    def current_cart 
     cart = Cart.where("id =?", session[:cart_id]).last

@@ -60,9 +60,13 @@ class Devise::RegistrationsController < DeviseController
       end
       sign_in resource_name, resource, bypass: true
       respond_with resource, location: after_update_path_for(resource)
-    else
+      flash[:notice] = "Thanks for voting! This helps us determine important issues in our schools."
+    else if current_user.is_admin != true 
       clean_up_passwords resource
+      render :action => "store/current_user_details", :template => "store/current_user_details"
+    else
       respond_with resource
+    end
     end
   end
 
@@ -128,9 +132,9 @@ class Devise::RegistrationsController < DeviseController
 
   # The default url to be used after updating a resource. You need to overwrite
   # this method in your own RegistrationsController.
-  def after_update_path_for(resource)
-    signed_in_root_path(resource)
-  end
+  # def after_update_path_for(resource)
+  #   signed_in_root_path(resource)
+  # end
 
   # Authenticates the current scope and gets the current resource from the session.
   def authenticate_scope!
@@ -143,7 +147,7 @@ class Devise::RegistrationsController < DeviseController
   end
 
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation, :current_password)
   end
 
   def translation_scope

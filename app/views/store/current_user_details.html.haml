@@ -1,33 +1,44 @@
-%table#bagtable
-  %tbody
-    %tr
-      %th#personal_head{:colspan => "2", :height => "29"} Personal Information
-    %form#user_edit.user_edit{"accept-charset" => "UTF-8", :action => "/users", :method => "post"}
-    
-    %tr
-      %td.field_text{:height => "32"}
-        First Name
-        %span *
-      %td
-        %input#user_first_name.field_border{:size => "25", :type => "text", :value => current_user.first_name}/
-    %tr
-      %td.field_text{:height => "32"}
-        Last Name
-        %span *
-      %td
-        %input#user_last_name.field_border{:value => current_user.last_name, :size => "25", :type => "text"}/
-    %tr
-      %td.field_text{:height => "32"}
-        Email Address
-        %span *
-      %td
-        %input#user_email.field_border{:value => current_user.email, :size => "30", :type => "email"}/
-        %input#info{:name => "info", :type => "hidden", :value => "true"}/
-    
-    %tr
-      %td.field_text{:height => "32"}
-        Mobile Number
-      %td
-        %input#user_phone_number.field_border{:value => current_user.phone_number, :size => "25", :type => "text"}/
-    
-    
+.page-container
+  .inner-page-contain.Edit-account
+    .login-title
+      %h4.title User Profile
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      %table
+        .col_1_of_2.span_1_of_2
+          %tbody           
+            %tr
+              %td      
+                %label First Name: 
+              %td
+                = f.text_field :first_name, :class => "form-control"
+            %tr
+              %td
+                %label Last Name: 
+              %td
+                = f.text_field :last_name, :class => "form-control"
+            %tr
+              %td
+                %label Email:
+              %td    
+                = f.text_field :email, :class => "form-control"
+            %tr
+              %td
+                %label Contact Number:
+              %td    
+                = f.text_field :phone_number, :class => "form-control"
+            %tr
+              %td
+                %label Country:
+              %td    
+                = f.text_field :country, autocomplete: "off"
+            %tr
+              %td
+                %label Current Password:
+              %td    
+                = f.password_field :current_password, autocomplete: "off"
+            %tr
+              %td
+              %td  
+                .actions
+                  = f.submit "Update"
+  .clear
