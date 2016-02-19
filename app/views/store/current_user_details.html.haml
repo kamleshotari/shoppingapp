@@ -40,5 +40,31 @@
               %td
               %td  
                 .actions
-                  = f.submit "Update"
+                  = f.submit "Update", :class => "grey"
+  .clear
+  .inner-page-contain.Edit-account 
+    %table#bagtable
+      %thead
+        %tr
+          %th Order ID
+          %th Product Image
+          %th Product Name
+          %th Product Price
+          %th Ordered Date
+      %tbody
+        - current_user.orders.each do |order|
+          - order.order_items.each do |item|
+            %tr
+              %td
+                = order.id
+              %td
+                %img{:src => item.product.image.url(:thumb)}
+              %td
+                = item.product.title
+              %td
+                = item.total_price
+              %td
+                = item.created_at.strftime("%B %e, %Y at %I:%M %p")
+
+
   .clear

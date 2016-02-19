@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   after_save :send_welcome_email
   has_many :line_items
   has_many :carts
+  has_many :orders
+  
   def is_admin?
   	self.is_admin
   end
