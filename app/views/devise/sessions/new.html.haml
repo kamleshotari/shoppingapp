@@ -26,5 +26,7 @@
                   %label{:for => "modlgn_remember"}
                     %a{:href => new_user_password_path} Forget Your Password ?
                 %input.button{:name => "Submit", :type => "submit", :value => "Login"}/
-                .clear
+                %br/
+            = link_to image_tag("facebook.png", :border => 0), user_omniauth_authorize_path(:facebook) 
+            .clear
     .clear

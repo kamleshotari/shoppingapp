@@ -32,6 +32,7 @@ gem 'remotipart', '~> 1.2'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem 'nested_form'
+gem 'omniauth-facebook'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -47,11 +48,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
 	gem 'factory_girl_rails'
   gem 'capybara'
-
-
 end 
-
-
 group :test do 
 	gem 'faker'
 end
