@@ -1,0 +1,6 @@
+%table#addresses
+  = f.fields_for :addresses, :wrapper => false do |address_form|
+    %tr.fields
+      %td= address_form.text_field :address
+      %td= address_form.link_to_remove "Remove this task"
+%p= f.link_to_add "Add a task", :addresses, "data-target" => "#addresses" 

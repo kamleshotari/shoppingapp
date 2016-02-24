@@ -33,7 +33,8 @@ class ApplicationController < ActionController::Base
   end
 
   def after_update_path_for(resource)
-    
+    current_user.update(user_params)
+    current_user.addresses.build
     if current_user.is_admin == true
       users_url
     else
@@ -61,5 +62,10 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart
    end
+
+
+   def user_params
+    params.require(:user).permit(:id,:first_name, :last_name, :email, :address, :country, :phone_number, addresses_attributes: [:id, :address, :_destroy])
+  end
 
 end

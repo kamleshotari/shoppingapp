@@ -2,10 +2,10 @@
   .inner-page-contain.Edit-account
     .login-title
       %h4.title User Profile
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      %table
+    = nested_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      %table#addresses
         .col_1_of_2.span_1_of_2
-          %tbody           
+          %tbody    
             %tr
               %td      
                 %label First Name: 
@@ -26,6 +26,21 @@
                 %label Contact Number:
               %td    
                 = f.text_field :phone_number, :class => "form-control"
+            %tr.fields
+              %td
+                %label Address: 
+              %td
+                = f.text_field :address, :class => "form-control"
+                  
+              %td
+                = f.fields_for :addresses do |address_form|   
+                  = address_form.text_field :address 
+                  Delete: #{address_form.check_box :_destroy}
+                  %br/  
+                = f.link_to_add "Add Address", :addresses 
+
+              
+            
             %tr
               %td
                 %label Country:
@@ -68,3 +83,18 @@
 
 
   .clear
+:javascript
+  function addRow(usertable) {
+        var table = document.getElementById(usertable);
+        var rowCount = table.rows.length;
+        var row = table.insertRow(rowCount-3);
+        var cell1 = row.insertCell(0);
+        var element1 = document.createElement("input");
+        element1.type = "text";
+        element1.name = "txtbox[]";
+        cell1.appendChild(element1);
+ 
+            
+ 
+ 
+        }

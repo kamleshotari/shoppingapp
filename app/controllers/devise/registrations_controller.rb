@@ -47,6 +47,7 @@ class Devise::RegistrationsController < DeviseController
   # the current user in place.
   def update
     @cart = current_cart
+    
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
 
@@ -58,9 +59,11 @@ class Devise::RegistrationsController < DeviseController
           :update_needs_confirmation : :updated
         set_flash_message :notice, flash_key
       end
+
       sign_in resource_name, resource, bypass: true
+      
       respond_with resource, location: after_update_path_for(resource)
-      flash[:notice] = "Thanks for voting! This helps us determine important issues in our schools."
+      
     else if current_user.is_admin != true 
       clean_up_passwords resource
       render :action => "store/current_user_details", :template => "store/current_user_details"
@@ -72,6 +75,7 @@ class Devise::RegistrationsController < DeviseController
 
   # DELETE /resource
   def destroy
+    
     resource.destroy
     Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
     set_flash_message :notice, :destroyed if is_flashing_format?
@@ -149,6 +153,8 @@ class Devise::RegistrationsController < DeviseController
   def account_update_params
     params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation, :current_password)
   end
+
+  
 
   def translation_scope
     'devise.registrations'

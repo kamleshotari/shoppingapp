@@ -15,4 +15,8 @@ module ApplicationHelper
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end
+
+  def link_to_remove(address, f)
+    f.hidden_field(:_destroy) + link_to_function(address, "remove_fields(this)")
+  end
 end

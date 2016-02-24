@@ -28,7 +28,7 @@
 //= require bootbox.min
 //= require custom
 //= require jquery.etalage.min
-
+//= require jquery_nested_form
 
 
 

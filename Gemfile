@@ -31,6 +31,7 @@ gem "iconv", "~> 1.0.3"
 gem 'remotipart', '~> 1.2'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'nested_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

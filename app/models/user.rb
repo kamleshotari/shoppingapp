@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   after_save :send_welcome_email
-  has_many :line_items
-  has_many :carts
+  has_many :addresses, :dependent => :destroy
+  accepts_nested_attributes_for :addresses, :allow_destroy => true
   has_many :orders
+  
   
   def is_admin?
   	self.is_admin

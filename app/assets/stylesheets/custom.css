@@ -93,3 +93,14 @@ a.button_with_image_save {display:block;cursor: pointer;width:30px;height:30px;t
     padding: 8px;
     width: 91%;
 }
+
+.entry:not(:first-of-type)
+{
+    margin-top: 10px;
+}
+
+.glyphicon
+{
+    font-size: 12px;
+}
+

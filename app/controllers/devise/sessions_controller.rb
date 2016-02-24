@@ -17,6 +17,7 @@ class Devise::SessionsController < DeviseController
   # POST /resource/sign_in
   def create
     @cart = current_cart
+    
     self.resource = warden.authenticate!(auth_options)
     set_flash_message(:notice, :signed_in) if is_flashing_format?
     sign_in(resource_name, resource)
@@ -72,6 +73,7 @@ class Devise::SessionsController < DeviseController
 
     users.all?(&:blank?)
   end
+  
 
   def respond_to_on_destroy
     # We actually need to hardcode this as Rails default responder doesn't
