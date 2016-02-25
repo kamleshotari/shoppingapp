@@ -4,7 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :authenticate_user!
   add_flash_types :success, :warning, :danger, :info
-  
+  before_action :initialize_omniauth_state
+
 
   def authenticate_admin
   	if user_signed_in? and current_user.is_admin?
@@ -62,7 +63,9 @@ class ApplicationController < ActionController::Base
     session[:cart_id] = cart.id
     cart
    end
-
+   def initialize_omniauth_state
+    session['omniauth.state'] = response.headers['X-CSRF-Token'] = form_authenticity_token
+   end
 
    def user_params
     params.require(:user).permit(:id,:first_name, :last_name, :email, :address, :country, :phone_number, addresses_attributes: [:id, :address, :_destroy])

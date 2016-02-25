@@ -28,5 +28,7 @@
                 %input.button{:name => "Submit", :type => "submit", :value => "Login"}/
                 %br/
             = link_to image_tag("facebook.png", :border => 0), user_omniauth_authorize_path(:facebook) 
+            &nbsp;
+            = link_to image_tag("google.png", :border => 0), user_omniauth_authorize_path(:google_oauth2)
             .clear
     .clear
