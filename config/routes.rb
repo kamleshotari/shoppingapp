@@ -9,11 +9,12 @@ Rails.application.routes.draw do
 
   get '/store' => "store#index"
   get '/store/cart_details' => "store#cart_details"
+   get '/store/error' => "store#error"
   get 'store/current_user_details' => "store#current_user_details"
   get '/store/:id' => "store#show"
-
+  get '/charges/new' => "charges#create"
   get '/dashboard' => "dashboard#index"
-
+  
 
   devise_for :users,  :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" } 
   devise_scope :user do

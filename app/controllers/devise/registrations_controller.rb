@@ -147,11 +147,11 @@ class Devise::RegistrationsController < DeviseController
   end
 
   def sign_up_params
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation, :city, :state, :zip_code)
   end
 
   def account_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:first_name, :last_name, :email, :address, :country, :phone_number, :password, :password_confirmation, :current_password, :city, :state, :zip_code)
   end
 
   

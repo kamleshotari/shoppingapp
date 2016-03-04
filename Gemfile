@@ -34,6 +34,7 @@ gem 'elasticsearch-rails'
 gem 'nested_form'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'stripe'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

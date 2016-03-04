@@ -46,21 +46,24 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
+    @order.user_id = current_user.id
     @cart = current_cart
 
     #@order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
-        
-        @order.add_order_item_from_cart(@cart)
-        Cart.destroy(session[:cart_id])
-        session[:cart_id] = nil                
-        # send order confirmation email
-        #Notifier.order_received(@order).deliver
-        format.html { redirect_to(@order, :notice => ('thanks')) }
-        format.xml  { render :xml => @order, :status => :created,
-          :location => @order }
+        if @order.payment.present? && @order.payment.status == true
+          @order.add_order_item_from_cart(@cart)
+          Cart.destroy(session[:cart_id])
+          session[:cart_id] = nil                
+          # send order confirmation email
+          #Notifier.order_received(@order).deliver
+          format.html { redirect_to(@order, :notice => ('thanks')) }
+
+        else
+          format.html { redirect_to('/store/error', :notice => ('Failed transaction')) }
+        end
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @order.errors,
@@ -103,6 +106,6 @@ class OrdersController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :city, :state, :contact_no, :zip_code)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :city, :state, :contact_no, :zip_code, :card_number, :exp_month, :exp_year, :cvv_number)
     end
 end

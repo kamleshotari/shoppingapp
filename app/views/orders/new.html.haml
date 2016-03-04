@@ -6,9 +6,9 @@
         %div
           = f.text_field :name, :class => "form-control", :placeholder => "Name"
         %div
-          = f.text_field :address, :class => "form-control", :placeholder => "Address"
+          = f.text_field :address, :class => "form-control", :placeholder => "Address", :value => current_user.address
         %div
-          = f.email_field :email, :class => "form-control", :placeholder => "Email"
+          = f.email_field :email, :class => "form-control", :placeholder => "Email", :value => current_user.email
         %div
           = f.text_field :city, :class => "form-control", :placeholder => "City"
         %div
@@ -22,6 +22,14 @@
           = f.text_field :contact_no, :class => "form-control", :placeholder => "Contact Number"
         %div
           = f.select :pay_type, Order::PAYMENT_TYPES
+        %div
+          = f.text_field :card_number, :class => "form-control", :placeholder => "Card Number"
+        %div
+          = f.text_field :exp_month, :class => "form-control", :placeholder => "Expiry month"
+        %div
+          = f.text_field :exp_year, :class => "form-control", :placeholder => "Expiry year"
+        %div
+          = f.text_field :cvv_number, :class => "form-control", :placeholder => "CVV Number" 
           %br/ 
           %br/
       .clear

@@ -46,6 +46,9 @@
 
 #bagTable tr{border-bottom: 1px solid #C4C4C4}
 h4.title {font-weight: bold}
+h3.alert {font-weight: bold; color:red; letter-spacing: -1px; text-transform: uppercase; border-bottom: 1px solid #dfdddd;font-size: 1.4em;margin-bottom: 0.5em;padding-bottom: 13px;text-align: center;}
+h3.message {font-weight: bold; color:red; letter-spacing: -1px; border-bottom: 1px solid #dfdddd;font-size: 1em;margin-bottom: 0.5em;padding-bottom: 13px;text-align: center;}
+
 #bagTable .field input[type='text']{width: 40px;padding: 5px;text-align: center;}
 
 a.button_with_image_save {display:block;cursor: pointer;width:30px;height:30px;text-indent: 35%;}
@@ -102,5 +105,15 @@ a.button_with_image_save {display:block;cursor: pointer;width:30px;height:30px;t
 .glyphicon
 {
     font-size: 12px;
+}
+
+.delete-lk {
+  position: relative;
+}
+
+.del-chk {
+  bottom: 16px;
+  position: absolute;
+  right: -85px;
 }
 

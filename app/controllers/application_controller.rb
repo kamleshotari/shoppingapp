@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if current_user.is_admin
       products_url
     else
-      store_index_url
+      "/store"
     end
   end
 
@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
    end
 
    def user_params
-    params.require(:user).permit(:id,:first_name, :last_name, :email, :address, :country, :phone_number, addresses_attributes: [:id, :address, :_destroy])
+    params.require(:user).permit(:id,:first_name, :last_name, :email, :address, :country, :phone_number, addresses_attributes: [:id, :address,:city,:state,:zip_code,:country,:contact_number, :_destroy])
   end
 
 end

@@ -29,5 +29,7 @@ class StoreController < ApplicationController
     @cart = current_cart
     @user = current_user
   end
-  
+  def error
+    @cart = current_cart
+  end
 end

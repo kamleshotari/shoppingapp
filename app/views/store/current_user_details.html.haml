@@ -26,23 +26,31 @@
                 %label Contact Number:
               %td    
                 = f.text_field :phone_number, :class => "form-control"
-            %tr.fields
-              %td
-                %label Address: 
-              %td
-                = f.text_field :address, :class => "form-control"
-                  
-              %td
-                = f.fields_for :addresses do |address_form|   
-                  = address_form.text_field :address 
-                  Delete: #{address_form.check_box :_destroy}
-                  %br/  
-                = f.link_to_add "Add Address", :addresses 
             %tr
               %td
-                %label Country:
-              %td    
-                = f.text_field :country, autocomplete: "off"
+                %label Address1: 
+              %td
+                = f.text_field :address, :class => "form-control"
+            %tr
+              %td
+                %label &nbsp;
+              %td
+                = f.fields_for :addresses do |address_form|   
+                  = address_form.text_field :address, :placeholder => "Address"
+                  = address_form.text_field :city, :placeholder => "City"
+                  = address_form.text_field :state, :placeholder => "State"
+                  = address_form.text_field :zip_code, :placeholder => "Zip Code"
+                  = address_form.text_field :country, :placeholder => "Country"
+                  %span.delete-lk
+                    %div.del-chk
+                      Delete: #{address_form.check_box :_destroy}
+            %tr
+              %td
+                %label &nbsp;
+              %td
+                = f.link_to_add "Add Address", :addresses 
+            
+            
             %tr
               %td
                 %label Current Password:
