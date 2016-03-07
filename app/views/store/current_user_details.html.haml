@@ -26,21 +26,20 @@
                 %label Contact Number:
               %td    
                 = f.text_field :phone_number, :class => "form-control"
-            %tr
-              %td
-                %label Address1: 
-              %td
-                = f.text_field :address, :class => "form-control"
+
             %tr
               %td
                 %label &nbsp;
               %td
                 = f.fields_for :addresses do |address_form|   
+                  = address_form.check_box :is_default
+                  %br/
                   = address_form.text_field :address, :placeholder => "Address"
                   = address_form.text_field :city, :placeholder => "City"
                   = address_form.text_field :state, :placeholder => "State"
                   = address_form.text_field :zip_code, :placeholder => "Zip Code"
                   = address_form.text_field :country, :placeholder => "Country"
+
                   %span.delete-lk
                     %div.del-chk
                       Delete: #{address_form.check_box :_destroy}
@@ -49,13 +48,11 @@
                 %label &nbsp;
               %td
                 = f.link_to_add "Add Address", :addresses 
-            
-            
             %tr
               %td
                 %label Current Password:
               %td    
-                = f.password_field :current_password, autocomplete: "off"
+                = f.password_field :current_password
             %tr
               %td
               %td  
@@ -85,8 +82,6 @@
                 = item.total_price
               %td
                 = item.created_at.strftime("%B %e, %Y at %I:%M %p")
-
-
   .clear
 :javascript
   function addRow(usertable) {
@@ -98,8 +93,4 @@
         element1.type = "text";
         element1.name = "txtbox[]";
         cell1.appendChild(element1);
- 
-            
- 
- 
         }

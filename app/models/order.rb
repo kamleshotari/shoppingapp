@@ -8,7 +8,7 @@ class Order < ActiveRecord::Base
   
   validates :name, :address, :email, :pay_type, :presence => true
 
-  after_save :charge_card, :on => :create
+  after_save :charge_card, :create_first_address, :on => :create
 
   def add_order_item_from_cart(cart) 
     cart.line_items.each do |item|
@@ -58,5 +58,12 @@ class Order < ActiveRecord::Base
         err
       end
     end
+  end
+
+  def create_first_address
+    if self.user.addresses.blank?
+      Address.create(:user_id => self.user_id, :city => self.city, :state => self.state, :address => self.address, :zip_code => self.zip_code, :country => self.country, :contact_no => self.contact_no)
+    end
+
   end
 end
