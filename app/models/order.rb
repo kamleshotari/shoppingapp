@@ -5,7 +5,7 @@ class Order < ActiveRecord::Base
   belongs_to :user
   has_one :payment
   PAYMENT_TYPES = [ "Credit card", "Cash On Delivery" ]  
-  
+  validates_length_of :zip_code, :maximum => 6
   validates :name, :address, :email, :pay_type, :presence => true
 
   after_save :charge_card, :create_first_address, :on => :create
