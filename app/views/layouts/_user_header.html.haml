@@ -4,6 +4,9 @@
     .cssmenu
       %ul
         %li.active
+          %a{:href => "#{new_order_url}"} Checkout
+        |
+        %li.active
           %a{:href => "/store/current_user_details"} Account
         |
         - if user_signed_in?

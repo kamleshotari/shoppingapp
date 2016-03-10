@@ -4,10 +4,19 @@ class Order < ActiveRecord::Base
   belongs_to :cart
   belongs_to :user
   has_one :payment
-  PAYMENT_TYPES = [ "Credit card", "Cash On Delivery" ]  
+  PAYMENT_TYPES = [ "---Select Payment Mode---","Credit card", "Cash On Delivery" ]  
   validates_length_of :zip_code, :maximum => 6
   validates :name, :address, :email, :pay_type, :presence => true
 
+  validates :card_number, :presence => {:message => "Card number cannot be blank" }, :numericality => {:only_integer => true},
+            :length => {:maximum => 16, :minimum => 16}, :if => Proc.new {|p| pay_type == "Credit card"}
+  validates :exp_month, :presence => {:message => "Expiry month can't be blank." }, :numericality => {:only_integer => true},
+            :length => {:maximum => 2, :minimum => 2}, :if => Proc.new {|p| pay_type == "Credit card"}
+  validates :exp_year,  :presence => {:message => "Expiry Year can't be blank." }, :numericality => {:only_integer => true},
+            :length => {:maximum => 4, :minimum => 4}, :if => Proc.new {|p| pay_type == "Credit card"}
+  validates :cvv_number, :presence => {:message => "CVV Number can't be blank." }, :numericality => {:only_integer => true},
+            :length => {:maximum => 3, :minimum => 3}, :if => Proc.new {|p| pay_type == "Credit card"}
+  
   after_save :charge_card, :create_first_address, :on => :create
 
   def add_order_item_from_cart(cart) 

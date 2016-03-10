@@ -22,18 +22,30 @@
           = f.text_field :contact_no, :class => "form-control", :placeholder => "Contact Number"
         %div
           = f.select :pay_type, Order::PAYMENT_TYPES
-        %div
-          = f.text_field :card_number, :class => "form-control", :placeholder => "Card Number"
-        %div
-          = f.text_field :exp_month, :class => "form-control", :placeholder => "Expiry month"
-        %div
-          = f.text_field :exp_year, :class => "form-control", :placeholder => "Expiry year"
-        %div
-          = f.text_field :cvv_number, :class => "form-control", :placeholder => "CVV Number" 
+
+        %div.hidden_option
+          = f.text_field :card_number, :class => "form-control", :placeholder => "Card Number", :class => "hidden_option"
+        %div.hidden_option
+          = f.text_field :exp_month, :class => "form-control", :placeholder => "Expiry month", :class => "hidden_option"
+        %div.hidden_option
+          = f.text_field :exp_year, :class => "form-control", :placeholder => "Expiry year", :class => "hidden_option"
+        %div.hidden_option
+          = f.text_field :cvv_number, :class => "form-control", :placeholder => "CVV Number", :class => "hidden_option" 
           %br/ 
           %br/
       .clear
       = f.submit "Create Order", :class => "grey"
       .clear
-        
-      
+:javascript
+  $(document).ready(function(){
+    if ("#{@order.pay_type.present? && @order.pay_type == 'Credit card'}" == "true"){
+      $(".hidden_option").show(); 
+    }
+    $("#order_pay_type").change(function(){
+        if($("#order_pay_type").val() == "Credit card"){
+          $(".hidden_option").fadeIn('fast');   
+        } 
+        else
+          $(".hidden_option").hide();           
+    });        
+  });
