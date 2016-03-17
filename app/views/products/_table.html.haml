@@ -22,7 +22,9 @@
       %th Uniq_Code
       %th Code
       %th Color
+      %th Quantity
       %th Action
+     
   %tbody
     - @products.each do |product|
       %tr
@@ -34,6 +36,7 @@
         %td= product.uniq_code
         %td= product.code
         %td= product.color
+        %td= product.quantity
         %td
           .hidden-sm.hidden-xs.btn-group
             = link_to "<span class='ace-icon fa fa-check bigger-120'>Show</span>".html_safe, product, :class => "button btn btn-xs btn-success"

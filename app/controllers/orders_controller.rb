@@ -32,7 +32,6 @@ class OrdersController < ApplicationController
     if current_cart.line_items.empty?
       redirect_to store_url, :notice => "Your cart is empty"
       return
-    
     end
   end
   end
@@ -52,7 +51,7 @@ class OrdersController < ApplicationController
     #@order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
-      if @order.save
+      if @order.validate_product_stock(@cart) && @order.save
         if @order.payment.present? && @order.payment.status == true
           @order.add_order_item_from_cart(@cart)
           Cart.destroy(session[:cart_id])
@@ -97,6 +96,7 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -104,8 +104,7 @@ class OrdersController < ApplicationController
       @order = Order.find(params[:id])
     end
     
-    # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type, :city, :state, :contact_no, :zip_code, :card_number, :exp_month, :exp_year, :cvv_number)
+      params.require(:order).permit(:name, :address, :email, :pay_type, :city, :state, :contact_no, :zip_code, :country ,:card_number, :exp_month, :exp_year, :cvv_number)
     end
 end

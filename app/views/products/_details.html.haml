@@ -33,6 +33,11 @@
     .profile-info-value
       %p
         = @product.color
+  .profile-info-row
+    .profile-info-name Quantity
+    .profile-info-value
+      %p
+        = @product.quantity
 
   .profile-info-row
     .profile-info-name Selected Image
@@ -54,6 +59,7 @@
     .profile-info-value
       %p
         = image_tag(@product.view3.url(:thumb))
+  
 
 
   

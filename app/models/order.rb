@@ -24,6 +24,27 @@ class Order < ActiveRecord::Base
       OrderItem.create(item.create_orderitem_from_line_item.merge({:order_id => self.id}))
     end 
   end  
+
+  def validate_product_stock(cart)
+    arry = []
+    cart.line_items.each do |item|
+      if Product.get_total_stock(item.product) <= 0
+        arry << false
+      else
+        arry << true
+      end
+      arry
+    end
+    if arry.include?(false)
+      false
+    else
+      true
+    end
+  end
+
+  
+
+
   def grand_total_price 
     order_items.to_a.sum { |item| item.total_price }
   end  

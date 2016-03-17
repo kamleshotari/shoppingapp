@@ -44,6 +44,10 @@
     %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} View3
     .col-sm-9
       = f.file_field :view3, :class => "col-xs-10 col-sm-5", :placeholder => "View3"
+  .form-group
+    %label.col-sm-3.control-label.no-padding-right{:for => "form-field-1"} Quantity
+    .col-sm-9
+      = f.text_field :quantity, :class => "col-xs-10 col-sm-5", :placeholder => "Quantity"
   .space-4
   .clearfix.form-actions
     .col-md-offset-3.col-md-9

@@ -55,6 +55,7 @@ class LineItemsController < ApplicationController
          format.xml  { render :xml => @line_item,
            :status => :created, :location => @line_item }
        else
+         format.js
          format.html { render :action => "new" }
          format.xml  { render :xml => @line_item.errors,
            :status => :unprocessable_entity }

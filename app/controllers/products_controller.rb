@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
-   #if params['search'].present?
+   
      
     @products = Product.search(params).page(params[:page]).per(5)
     
@@ -75,7 +75,7 @@ class ProductsController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:id, :title, :description, :price, :category_id, :uniq_code, :code, :color, :image, :view1, :view2, :view3)
+      params.require(:product).permit(:id, :title, :description, :price, :category_id, :uniq_code, :code, :color, :image, :view1, :view2, :view3, :quantity)
     end
 
     

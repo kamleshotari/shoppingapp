@@ -5,6 +5,8 @@ class Product < ActiveRecord::Base
  #  include Elasticsearch::Model::Callbacks
 	belongs_to :category
 	has_many :line_items
+	has_many :product_instocks
+	has_many :product_outstocks
 	before_destroy :ensure_not_referenced_by_any_line_item
 	has_many :order_items
 	validates :title, :presence => {:message => "title can't be blank." }
@@ -74,10 +76,19 @@ class Product < ActiveRecord::Base
 			else raise "Unknown file type: #{file.original_filename}"
 		end
 	end	
+	
+	def self.get_total_stock(product)
+		total_stock = 0
+		total_instock = ProductInstock.where("product_id =?", product.id).collect{|p| p.product_quantity}.sum rescue 0
+		total_outstock = ProductOutstock.where("product_id =?", product.id).collect{|p| p.product_quantity}.sum rescue 0
+		total_stock = total_instock - total_outstock
+		total_stock
+	end
+	
 
 private
   
-  # ensure that there are no line items referencing this product
+ 
   def ensure_not_referenced_by_any_line_item
     if line_items.count.zero?
       return true
@@ -88,4 +99,3 @@ private
   end
 			
 end
-#Product.import
